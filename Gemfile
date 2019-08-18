@@ -9,7 +9,11 @@ gem 'bootstrap', '~> 4.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                      '~> 5.2.1'
 # Used for pagination
-gem 'kaminari',                   '1.1.1'
+gem 'will_paginate', '~> 3.1.0'
+# Used to show all the cities in Romania
+gem 'city-state', '0.0.13'
+# Used to calculate the distance between 2 cities
+gem 'geocoder', '1.3.7'
 # Used for filters, sorts
 gem 'filterrific',                '5.1.0'
 # Used for searches
@@ -70,9 +74,6 @@ group :development, :staging do
 end
 
 group :production, :staging do
-  # Call JavaScript code and manipulate JavaScript objects from Ruby.
-  # Call Ruby code and manipulate Ruby objects from JavaScript.
-  gem 'therubyracer',             '0.12.3'
   # Use postgresql as the database for Active Record
   gem 'pg',                       '1.1.3'
 end

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 'Numele unui user'
+  email: 'email_primul_user@gmail.com'
+
+two:
+  name: 'Numele unui al doilea user'
+  email: 'email_al_doilea_user@gmail.com'

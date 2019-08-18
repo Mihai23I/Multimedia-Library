@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "Biblioteca Multimedia", root_path, class: "navbar-brand" %>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Home", "%", class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<% # if admin? %>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "Administrator", root_path, class: "navbar-brand" %>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <%= link_to "Home", "%", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Home", "%", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Home", "%", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Home", "%", class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Home", "%", class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<% # end %>
