@@ -10,6 +10,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'rails',                      '~> 5.2.1'
 # Used for pagination
 gem 'will_paginate', '~> 3.1.0'
+# adds secured password
+gem 'bcrypt', '3.1.7'
 # Used to show all the cities in Romania
 gem 'city-state', '0.0.13'
 # Used to calculate the distance between 2 cities
