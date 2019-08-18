@@ -8,7 +8,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :city, length: { maximum: 50 }
   validates :address, length: { maximum: 255 }
-  validates :phone, length: { is: 10 }, allow_nil: true
+  validates :phone, length: { is: 10 }, allow_nil: true, allow_blank: true, numericality: true
   has_secure_password
   validates :password, length: { minimum: 6 }
 end
