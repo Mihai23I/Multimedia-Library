@@ -1,0 +1,45 @@
+<h1>Creează un cont nou</h1>
+<p>Completează urmatorul formular pentru a crea un cont nou:</p>
+<%= form_for @user, url: sign_up_path do |f| %>
+
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li class="text-danger"> <%= msg %></li>
+    <% end %>
+  </ul>
+
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 col-form-label" %>
+    <%= f.email_field :email, class: "textinput", placeholder: "Introdu adresa de mail" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :parolă, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password, class: "textinput" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :confirmă_parola, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password_confirmation, class: "textinput" %>
+  </div>
+  <br><br>
+  <p>Informații personale:</p>
+  <div class="form-group">
+    <%= f.label :nume, class: "col-sm-2 col-form-label"%>
+    <%= f.text_field :name, class: "textinput" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :adresă, class: "col-sm-2 col-form-label"%>
+    <%= f.text_field :address, class: "textinput" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :număr_de_telefon, class: "col-sm-2 col-form-label"%>
+    <%= f.text_field :phone, class: "textinput" %>
+  </div>
+
+  <br>
+
+  <%= f.submit "Înregistrare cont nou", class: "btn btn-primary" %>
+<% end %>
