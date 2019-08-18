@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_162442) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "role"
+    t.boolean "admin", default: false
     t.string "city"
     t.string "phone", limit: 12
     t.string "address"

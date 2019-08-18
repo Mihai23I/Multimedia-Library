@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :name
       t.string :email
-      t.string :role
+      t.boolean :admin, default: 0
       t.string :city
       t.string :phone, limit: 12
       t.string :address
