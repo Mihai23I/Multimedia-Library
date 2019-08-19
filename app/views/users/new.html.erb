@@ -1,4 +1,7 @@
 <h1>Creează un cont nou</h1>
+<br>
+<i><p>Daca ai deja un cont, te poti loga <%= link_to "aici", login_path %>.</p></i>
+
 <p>Completează urmatorul formular pentru a crea un cont nou:</p>
 <%= form_for @user, url: sign_up_path do |f| %>
 
