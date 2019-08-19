@@ -1,0 +1,26 @@
+<h1>Resetarea parolei</h1>
+<br>
+
+<p>Daca doresti sa modifici date despre contul tau, completeaza urmatorul formular:</p>
+<%= form_for @user, url: user_password_resets_url(params[:id]) do |f| %>
+
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li class="text-danger"> <%= msg %></li>
+    <% end %>
+  </ul>
+
+  <%= hidden_field_tag :email, @user.email %>
+
+  <div class="form-group">
+    <%= f.label :parolă, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password, class: "textinput" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :confirmă_parola, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password_confirmation, class: "textinput" %>
+  </div>
+
+  <%= f.submit "Aplica Modificari", class: "btn btn-primary" %>
+<% end %>
