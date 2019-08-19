@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # before_action :not_logged_in, only: %i[new, create, destroy]
+
   def new
   end
 
@@ -8,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'Esti logat'
       log_in(user)
       params[:session][:remember] == '1' ? remember(user) : forget(user)
-      redirect_to root_url
+      redirect_back_or user
     else
       flash.now[:danger] = 'Informatiile oferite sunt gresite'
       render 'new'
@@ -20,4 +22,13 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
+  private
+
+  # def not_logged_in
+  #   return unless logged_in?
+  #
+  #   flash[:danger] = "Nu ai acces la acea pagina"
+  #   redirect_to root_url
+  # end
 end
