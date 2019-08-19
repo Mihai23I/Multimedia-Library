@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      log_in user
-      redirect_to root_url
+      log_in(user, params[:session][:remember])
+      redirect_to(:back)
     else
       flash.now[:danger] = 'Informatiile oferite sunt gresite'
       render 'new'
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     flash[:success] = 'Ai iesit din cont'
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 end
