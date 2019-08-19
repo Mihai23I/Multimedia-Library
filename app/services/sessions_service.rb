@@ -1,13 +1,12 @@
 module SessionsService
-  def log_in(user, is_remembered = false)
+  def log_in(user)
     session[:user_id] = user.id
-    is_remembered == '1' ? remember(user) : forget(user)
   end
 
   def log_out
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
-    forget(current_user)
   end
 
   def current_user
@@ -23,7 +22,7 @@ module SessionsService
   end
 
   def logged_in?
-    @current_user.nil?
+    current_user.present?
   end
 
   def logged_in_as_admin?
@@ -40,5 +39,14 @@ module SessionsService
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
   end
 end
