@@ -7,7 +7,7 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:success] = 'Contul este activat!'
-      redirect_to user
+      redirect_to root_url
     else
       flash[:danger] = 'Link-ul de activare este invalid'
       redirect_to root_url
