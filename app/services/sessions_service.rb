@@ -1,7 +1,6 @@
 module SessionsService
   def log_in(user, is_remembered = false)
     session[:user_id] = user.id
-    is_remembered == '1' ? remember(user) : forget(user)
   end
 
   def log_out
@@ -23,7 +22,7 @@ module SessionsService
   end
 
   def logged_in?
-    @current_user.nil?
+    @current_user.present?
   end
 
   def logged_in_as_admin?
