@@ -1,5 +1,6 @@
-<h1>User#account_activation</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/account_activation.html.erb
-</p>
+<h1>Buna <%= @user.name %>,</h1>
+Bine ai venit pe platforma bibliotecii multimedia!
+<br>
+Pentru a activa contul de utilizator acceseaza acest <%= link_to "link", edit_account_activation_url(@user.activation_token, email: @user.email) %>.
+<br><br>
+Mult noroc!

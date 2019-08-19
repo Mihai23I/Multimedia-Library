@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = 'Inregistrarea a functionat'
+      UserMailer.account_activation(@user).deliver_now
+      flash[:success] = 'Verifica adresa de mail pentru a activa contul de utilizator'
       redirect_to root_url
     else
       flash.now[:danger] = 'Inregistrarea nu a functionat'
