@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  # before_action :not_logged_in, only: %i[new, create, destroy]
+  before_action :not_logged_in, only: %i[new, create]
 
   def new; end
 
@@ -31,10 +31,10 @@ class SessionsController < ApplicationController
 
   private
 
-  # def not_logged_in
-  #   return unless logged_in?
-  #
-  #   flash[:danger] = "Nu ai acces la acea pagina"
-  #   redirect_to root_url
-  # end
+  def not_logged_in
+    return unless logged_in?
+
+    flash[:danger] = "Nu ai acces la acea pagina"
+    redirect_to root_url
+  end
 end

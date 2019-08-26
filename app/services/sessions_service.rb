@@ -25,6 +25,10 @@ module SessionsService
     current_user.present?
   end
 
+  def admin?
+    current_user&.admin
+  end
+
   def logged_in_as_admin?
     @current_user&.admin
   end

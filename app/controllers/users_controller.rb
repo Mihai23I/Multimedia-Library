@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[edit update]
   before_action :correct_user, only: %i[edit update]
-  # before_action :not_logged_in, only: %i[create]
+  before_action :not_logged_in, only: %i[new create]
   def new
     @user = User.new
   end
@@ -35,12 +35,12 @@ class UsersController < ApplicationController
 
   private
 
-  # def not_logged_in
-  #   return unless logged_in?
-  #
-  #   flash[:danger] = "Nu ai acces la acea pagina"
-  #   redirect_to root_url
-  # end
+  def not_logged_in
+    return unless logged_in?
+
+    flash[:danger] = "Nu ai acces la acea pagina"
+    redirect_to root_url
+  end
 
   def logged_in_user
     return if logged_in?
