@@ -6,7 +6,7 @@ class CreateItemsAndMovies < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :movies do |t|
+    create_table :videos do |t|
       t.belongs_to :item
 
       t.integer :year, null: false

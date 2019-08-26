@@ -27,26 +27,6 @@ ActiveRecord::Schema.define(version: 2019_08_26_105747) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "year", null: false
-    t.date "released", null: false
-    t.string "director", null: false
-    t.string "actors", null: false
-    t.string "writer", null: false
-    t.string "genres", null: false
-    t.string "type", null: false
-    t.string "awards", null: false
-    t.string "rated", null: false
-    t.decimal "imdb_rating", null: false
-    t.string "imdb_url", null: false
-    t.string "trailer_url"
-    t.string "poster_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_movies_on_item_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -65,6 +45,26 @@ ActiveRecord::Schema.define(version: 2019_08_26_105747) do
     t.integer "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "year", null: false
+    t.date "released", null: false
+    t.string "director", null: false
+    t.string "actors", null: false
+    t.string "writer", null: false
+    t.string "genres", null: false
+    t.string "type", null: false
+    t.string "awards", null: false
+    t.string "rated", null: false
+    t.decimal "imdb_rating", null: false
+    t.string "imdb_url", null: false
+    t.string "trailer_url"
+    t.string "poster_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_videos_on_item_id"
   end
 
 end
