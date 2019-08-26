@@ -1,7 +1,7 @@
 class CreateItemsAndMovies < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
-      t.string :name
+      t.string :name, null: false
 
       t.timestamps
     end
@@ -9,22 +9,22 @@ class CreateItemsAndMovies < ActiveRecord::Migration[5.2]
     create_table :movies do |t|
       t.belongs_to :item
 
-      t.integer :year
-      t.date :released
+      t.integer :year, null: false
+      t.date :released, null: false
 
-      t.string :director
-      t.string :actors
-      t.string :writer
+      t.string :director, null: false
+      t.string :actors, null: false
+      t.string :writer, null: false
 
-      t.string :genres
-      t.string :type
+      t.string :genres, null: false
+      t.string :type, null: false
 
-      t.string :awards
+      t.string :awards, null: false
 
-      t.string :rated
+      t.string :rated, null: false
 
-      t.decimal :imdb_rating
-      t.string :imdb_url
+      t.decimal :imdb_rating, null: false
+      t.string :imdb_url, null: false
       t.string :trailer_url
       t.string :poster_url
 
