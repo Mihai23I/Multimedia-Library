@@ -7,13 +7,14 @@
     <%= link_to "Adauga filme", new_admin_video_path %>
     <% end %>
 
-    <form>
+    <%= form_for Video.search(params[:q]), as: :q, url: videos_path, method: :get do |f| %>
+      <div class="justify-content-center"> <%= f.submit 'Aplica filtre', class: "btn btn-primary btn-sm"%> </div> <br>
       <div class="list-group">
-        <div class="list-group-item"><label> Actori: </label> <%= f.text_field :actors, class: "form-control-sm"%> </div>
+        <div class="list-group-item">Cauta: <%= f.text_field :year, class: "form-control-sm input-sm"%> </div>
         <div class="list-group-item">Category 2</div>
         <div class="list-group-item">Category 3</div>
       </div>
-    </form>
+    <% end %>
 
     <br>
     <div class="center-block"> <%= paginate @videos %> </div>
