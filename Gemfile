@@ -9,6 +9,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails', '4.3.5'
 gem 'faker', '1.6.6'
 
+# Added to import movies
+gem 'omdb-api', '1.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                      '~> 5.2.1'
 # Used for pagination
