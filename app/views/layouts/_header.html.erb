@@ -10,7 +10,7 @@
         <%= link_to "Home", root_url, class: "nav-link" %>
       </li>
 
-      <% if logged_in? %>
+      <% if is_logged_in? %>
         <li class="nav-item">
           <%= link_to "Contul meu", edit_user_path(current_user), class: "nav-link" %>
         </li>
