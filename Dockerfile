@@ -1,4 +1,7 @@
 FROM ruby:2.5.1-stretch
+RUN apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+        && apt-get install -y nodejs
 RUN apt-get update && \
 	apt-get -yq install sqlite3 && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
