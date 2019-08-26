@@ -9,7 +9,7 @@ class Video < ApplicationRecord
   validates :actors, presence: true
   validates :writer, presence: true
   validates :genres, presence: true
-  validates :type, presence: true
+  validates :category, presence: true
   validates :awards, presence: true
   validates :rated, presence: true
   validates :imdb_rating, presence: true

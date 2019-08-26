@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_105747) do
     t.string "actors", null: false
     t.string "writer", null: false
     t.string "genres", null: false
-    t.string "type", null: false
+    t.string "category", null: false
     t.string "awards", null: false
     t.string "rated", null: false
     t.decimal "imdb_rating", null: false

@@ -1,3 +1,10 @@
-<%# <%= will_paginate %>
+<% if admin? %>
+<%= link_to "Adauga filme", new_admin_video_path %>
+<% end %>
 
-<%# <%= will_paginate %>
+
+<% @videos.each do |video| %>
+
+  <%= video.item.name %>
+  <br>
+<% end %>

@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def index
-    #@videos = Video.all.shuffle&.paginate(page: params[:page])
+    @videos = Video.all.order('random()')
   end
 
   def show

@@ -1,4 +1,4 @@
-class CreateItemsAndMovies < ActiveRecord::Migration[5.2]
+class CreateItemsAndVideos < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
       t.string :name, null: false
@@ -17,7 +17,7 @@ class CreateItemsAndMovies < ActiveRecord::Migration[5.2]
       t.string :writer, null: false
 
       t.string :genres, null: false
-      t.string :type, null: false
+      t.string :category, null: false
 
       t.string :awards, null: false
 
