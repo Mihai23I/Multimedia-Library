@@ -27,9 +27,17 @@
           <%= link_to "Log out", logout_path, method: :delete, class: "nav-link" %>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Contul meu", login_path, class: "nav-link" %>
-        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contul Meu
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <%= link_to "Log in", login_path, class: "dropdown-item text-white" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Cont nou", sign_up_path, class: "dropdown-item text-white" %>
+        </div>
+      </li>
+
       <% end %>
 
 
