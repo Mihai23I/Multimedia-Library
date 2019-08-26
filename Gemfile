@@ -7,6 +7,7 @@ gem 'bootstrap-datepicker-rails', '1.8.0.1'
 # Used to enable bootstrap in the application
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails', '4.3.5'
+gem 'faker', '1.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                      '~> 5.2.1'
