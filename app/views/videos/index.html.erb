@@ -1,10 +1,45 @@
-<% if admin? %>
-<%= link_to "Adauga filme", new_admin_video_path %>
-<% end %>
+<div class="row">
 
+  <div class="col-lg-3">
 
-<% @videos.each do |video| %>
+    <h1 class="my-4">Filme</h1>
+    <% if admin? %>
+    <%= link_to "Adauga filme", new_admin_video_path %>
+    <% end %>
+    <div class="list-group">
+      <a href="#" class="list-group-item">Category 1</a>
+      <a href="#" class="list-group-item">Category 2</a>
+      <a href="#" class="list-group-item">Category 3</a>
+    </div>
 
-  <%= video.item.name %>
-  <br>
-<% end %>
+    <%= paginate @videos, :theme => 'twitter-bootstrap', :pagination_class => "pagination-sm" %>
+
+  </div>
+
+  <div class="col-lg-9">
+    <br><br>
+    <div class="row">
+      <% @videos.each do |video| %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <%= image_tag(video.poster_url, :alt => "", style: "width:252px;height:430px;") %>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= link_to video.item.name, video_path(video) %>
+            </h4>
+            <p class="card-text">An: <%= video.year %> <br> Rating imdb: <%= video.imdb_rating %> <br><br> Actori principali: <%= video.actors %> </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->

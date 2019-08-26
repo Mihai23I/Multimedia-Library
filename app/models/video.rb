@@ -18,6 +18,8 @@ class Video < ApplicationRecord
   validates :imdb_url, presence: true
   validate :imdb_url, if: :valid_imdb_url?
 
+  paginates_per 12
+
   private
 
   def valid_poster_url?

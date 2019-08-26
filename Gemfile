@@ -14,7 +14,9 @@ gem 'omdb-api', '1.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                      '~> 5.2.1'
 # Used for pagination
-gem 'will_paginate', '~> 3.1.0'
+gem 'kaminari', '0.17.0'
+
+gem 'bootstrap-kaminari-views', '0.0.5'
 # adds secured password
 gem 'bcrypt', '3.1.7'
 # Used to show all the cities in Romania

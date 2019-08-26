@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.all.order('random()')
+    @videos = Video.all.order(updated_at: :desc).page params[:page]
   end
 
   def show
