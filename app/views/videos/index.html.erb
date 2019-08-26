@@ -6,13 +6,17 @@
     <% if admin? %>
     <%= link_to "Adauga filme", new_admin_video_path %>
     <% end %>
-    <div class="list-group">
-      <a href="#" class="list-group-item">Category 1</a>
-      <a href="#" class="list-group-item">Category 2</a>
-      <a href="#" class="list-group-item">Category 3</a>
-    </div>
 
-    <%= paginate @videos, :theme => 'twitter-bootstrap', :pagination_class => "pagination-sm" %>
+    <form>
+      <div class="list-group">
+        <div class="list-group-item"><label> Actori: </label> <%= f.text_field :actors, class: "form-control-sm"%> </div>
+        <div class="list-group-item">Category 2</div>
+        <div class="list-group-item">Category 3</div>
+      </div>
+    </form>
+
+    <br>
+    <div class="center-block"> <%= paginate @videos %> </div>
 
   </div>
 
