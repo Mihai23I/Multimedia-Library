@@ -16,3 +16,4 @@ RUN mkdir -p ./tmp/pids
 COPY Gemfile Gemfile.lock ./
 ENV BUNDLER_VERSION 2.0.2
 RUN gem install bundler && bundle install --jobs 20 --retry 5
+RUN gem install rubocop
