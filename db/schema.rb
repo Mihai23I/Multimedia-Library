@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_094836) do
+ActiveRecord::Schema.define(version: 2019_08_27_112710) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_094836) do
     t.datetime "updated_at", null: false
     t.text "alternative_contact"
     t.integer "coordinate_id"
+    t.integer "city_id"
+    t.index ["city_id"], name: "index_locations_on_city_id"
     t.index ["coordinate_id"], name: "index_locations_on_coordinate_id"
   end
 
