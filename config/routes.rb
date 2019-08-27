@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show]
   namespace :admin do
     resources :videos, only: [:new, :create, :edit, :update]
+    resources :locations, only: [:new, :create, :edit, :update]
   end
 
   resources :locations, only: [:index]
