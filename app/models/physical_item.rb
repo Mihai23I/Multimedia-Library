@@ -1,6 +1,6 @@
-class Location < ApplicationRecord
+class PhysicalItem < ApplicationRecord
   enum category: { video: 'video', audio: 'audio', book: 'book' }
 
-  belongs_to :physical_items
+  has_many :users, through: :loans
   has_and_belongs_to_many :locations
 end
