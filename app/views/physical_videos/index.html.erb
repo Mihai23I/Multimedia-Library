@@ -1,0 +1,44 @@
+<h1>Obiectele disponibile pentru:<br>
+<%= "Filmul: #{@item.name}" %></h1>
+<br>
+<% if admin? %>
+  <%= link_to 'Adauga un video nou', '#', class: "btn btn-primary" %>
+  <br>
+<% end %>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>ID<th>
+        <th>Locatie</th>
+        <th>Format</th>
+        <th>Rezolutie</th>
+        <th>Detalii sunet</th>
+        <th>3D</th>
+        <th>Dublat</th>
+        <th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @physical_videos.each do |physical_video| %>
+        <tr>
+          <td class="align-middle"><%= %></td>
+          <td class="align-middle"><%= physical_video.id %></td>
+          <td class="align-middle"><%= physical_video.location.name %></td>
+          <td class="align-middle"><%= physical_video.format %></td>
+          <td class="align-middle"><%= physical_video.resolution %></td>
+          <td class="align-middle"><%= physical_video.sound %></td>
+          <td class="align-middle"><%= physical_video.is_3d ? "Da" : "Nu" %></td>
+          <td class="align-middle"><%= physical_video.blank? ? "Nu" : "Da" %></td>
+        </tr>
+        <% Loan.where(physical_item_id: physical_video.physical_item.id).where("return_date >= ? AND status IS NOT ?", Date.today, "cancelled").each do |loan| %>
+          <tr class="warning">
+          <td colspan="8"> Obiect indisponibil in perioada: <%= " #{loan.burrow_date} - #{loan.return_date}" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :user_password_resets, only: [:new, :create, :edit, :update]
 
+  resources :items do
+    resources :physical_videos, only: [:index]
+  end
+
   resources :videos, only: [:index, :show]
   namespace :admin do
     resources :videos, only: [:new, :create, :edit, :update]

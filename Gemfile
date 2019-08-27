@@ -8,6 +8,7 @@ gem 'bootstrap-datepicker-rails', '1.8.0.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails', '4.3.5'
 gem 'faker', '1.6.6'
+gem 'rails-admin-scaffold', '0.1.0'
 
 # Added to import movies
 gem 'omdb-api', '1.4.2'
