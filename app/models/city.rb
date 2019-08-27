@@ -2,9 +2,7 @@ class City < ApplicationRecord
   before_create :add_coordinates
 
   validates :name, presence: true
-  validates :longitude, presence: true
-  validates :latitude, presence: true
-  
+
   private
 
   def add_coordinates

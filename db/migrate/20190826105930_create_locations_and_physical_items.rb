@@ -1,6 +1,6 @@
 class CreateLocationsAndPhysicalItems < ActiveRecord::Migration[5.2]
   def change
-    create_table :assemblies do |t|
+    create_table :locations do |t|
       t.string :name, null: false
       t.string :address, null: false
       t.decimal :latitude, null: false
@@ -10,7 +10,7 @@ class CreateLocationsAndPhysicalItems < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :physical_item do |t|
+    create_table :physical_items do |t|
       t.string :category
       t.timestamps
     end

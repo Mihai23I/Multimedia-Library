@@ -3,8 +3,7 @@ class Location < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
-  validates :longitude, presence: true
-  validates :latitude, presence: true
+  validates :schedule, presence: true
 
   has_and_belongs_to_many :physical_items
 

@@ -1,7 +1,5 @@
 class LocationsController < ApplicationController
   def index
-    @locations = Locations.all
+    @locations = Location.all.order(:created_at).page params[:page]
   end
-
-  private
 end

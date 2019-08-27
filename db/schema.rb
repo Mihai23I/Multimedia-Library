@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_105930) do
-
-  create_table "assemblies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "address", null: false
-    t.decimal "latitude", null: false
-    t.decimal "longitude", null: false
-    t.string "schedule"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_08_27_091408) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -37,6 +27,17 @@ ActiveRecord::Schema.define(version: 2019_08_26_105930) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.decimal "latitude", null: false
+    t.decimal "longitude", null: false
+    t.string "schedule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "alternative_contact"
+  end
+
   create_table "locations_physical_items", id: false, force: :cascade do |t|
     t.integer "location_id"
     t.integer "physical_item_id"
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_105930) do
     t.index ["physical_item_id"], name: "index_locations_physical_items_on_physical_item_id"
   end
 
-  create_table "physical_item", force: :cascade do |t|
+  create_table "physical_items", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
