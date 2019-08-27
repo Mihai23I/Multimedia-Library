@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_132733) do
+ActiveRecord::Schema.define(version: 2019_08_27_132750) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_132733) do
 
   create_table "physical_videos", force: :cascade do |t|
     t.integer "physical_item_id"
-    t.integer "video_id"
     t.boolean "is_3d", default: false
     t.string "format"
     t.string "resolution"
@@ -79,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_132733) do
     t.text "other_information"
     t.string "dubbed"
     t.index ["physical_item_id"], name: "index_physical_videos_on_physical_item_id"
-    t.index ["video_id"], name: "index_physical_videos_on_video_id"
   end
 
   create_table "users", force: :cascade do |t|
