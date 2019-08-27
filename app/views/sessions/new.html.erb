@@ -3,17 +3,17 @@
 <i><p>Daca nu ai inca un cont, poti crea unul <%= link_to "aici", sign_up_path %>.</p></i>
 <p>Introdu datele pentru a accesa contul de utilizator:</p>
 <%= form_for :session, url: login_path do |f| %>
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :email, class: "col-sm-2 col-form-label" %>
     <%= f.email_field :email, class: "textinput", placeholder: "Introdu adresa de mail" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :parola, class: "col-sm-2 col-form-label" %>
     <%= f.password_field :password, class: "textinput" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :remember, class: "checkbox inline" do %>
       <%= f.check_box :remember %>
       Tine-ma minte
