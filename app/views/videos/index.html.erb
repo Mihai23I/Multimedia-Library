@@ -7,10 +7,10 @@
     <%= button_to "Adauga filme", new_admin_video_path, method: :get, class: "btn btn-primary" %>
     <% end %>
     <br>
-    <div class="justify-content-center"><%= button_to "Ignora filtre", videos_path, method: :get, class: "btn btn-outline-danger" %></div>
-    <br>
     <%= form_tag(videos_url, method: :get) do %>
-      <div class="justify-content-center"> <%= submit_tag 'Aplica filtre', class: "btn btn-dark"%> </div> <br>
+      <div class="justify-content-center"> <%= submit_tag 'Aplica filtre', class: "btn btn-dark"%>
+        <a href="<%= "#{videos_url}" %>" class="btn btn-outline-danger">Ignora filtre</a></div> <br>
+
       <div class="list-group">
         <div class="list-group-item">Titlu: <%= text_field_tag :name, nil, class: "form-control-sm input-sm"%> </div>
         <div class="list-group-item">Category 2</div>

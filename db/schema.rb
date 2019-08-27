@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_105747) do
+ActiveRecord::Schema.define(version: 2019_08_26_105930) do
+
+  create_table "assemblies", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "address", null: false
+    t.decimal "latitude", null: false
+    t.decimal "longitude", null: false
+    t.string "schedule"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -23,6 +33,19 @@ ActiveRecord::Schema.define(version: 2019_08_26_105747) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations_physical_items", id: false, force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "physical_item_id"
+    t.index ["location_id"], name: "index_locations_physical_items_on_location_id"
+    t.index ["physical_item_id"], name: "index_locations_physical_items_on_physical_item_id"
+  end
+
+  create_table "physical_item", force: :cascade do |t|
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
