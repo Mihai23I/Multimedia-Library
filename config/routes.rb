@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'user_password_resets/new'
-  get 'user_password_resets/edit'
-  root 'users#new'
+
+  root 'static_pages#home'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -13,8 +12,18 @@ Rails.application.routes.draw do
   get '/sign_up', to: 'users#new'
   post '/sign_up', to: 'users#create'
 
+  get 'user_password_resets/new'
+  get 'user_password_resets/edit'
+
   resources :account_activations, only: [:edit]
   resources :user_password_resets, only: [:new, :create, :edit, :update]
+
+  resources :videos, only: [:index, :show]
+  namespace :admin do
+    resources :videos, only: [:new, :create, :edit, :update]
+  end
+
+  get 'redirect_videos', to: 'static_pages#redirect_to_videos'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

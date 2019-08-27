@@ -7,19 +7,15 @@
     <ul class="nav navbar-nav navbar-right">
 
       <li class="nav-item">
-        <%= link_to "Home", "%", class: "nav-link" %>
+        <%= link_to "Home", root_url, class: "nav-link" %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Home", "%", class: "nav-link" %>
+        <%= link_to "Filme", videos_url, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Home", "%", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Home", "%", class: "nav-link" %>
-      </li>
-      <% if logged_in? %>
+
+
+      <% if is_logged_in? %>
         <li class="nav-item">
           <%= link_to "Contul meu", edit_user_path(current_user), class: "nav-link" %>
         </li>
@@ -45,34 +41,19 @@
   </div>
 </nav>
 
-<% # if admin? %>
+<% if admin? %>
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
       <div class="container">
         <div class="navbar-header">
           <%= link_to "Administrator", root_path, class: "navbar-brand" %>
         </div>
 
+
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
-            <%= link_to "Home", "%", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Home", "%", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Home", "%", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Home", "%", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to "Home", "%", class: "nav-link" %>
+            <%= link_to "Filme", videos_path, class: "nav-link" %>
           </li>
         </ul>
       </div>
     </nav>
-<% # end %>
+<% end %>

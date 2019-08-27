@@ -1,5 +1,5 @@
 class UserPasswordResetsController < ApplicationController
-  before_action :valid_user, only: [:edit, :update]
+  before_action :is_valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
 
   def new; end
@@ -47,7 +47,7 @@ class UserPasswordResetsController < ApplicationController
   end
 
     # Confirms a valid user.
-    def valid_user
+    def is_valid_user
       @user = User.find_by(email: params[:email])
       return if @user&.authenticated?(:reset, params[:id])
 

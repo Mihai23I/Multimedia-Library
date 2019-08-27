@@ -21,11 +21,15 @@ module SessionsService
     end
   end
 
-  def logged_in?
+  def is_logged_in?
     current_user.present?
   end
 
-  def logged_in_as_admin?
+  def admin?
+    current_user&.admin
+  end
+
+  def is_logged_in_as_admin?
     @current_user&.admin
   end
 

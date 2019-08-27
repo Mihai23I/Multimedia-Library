@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  # before_action :not_logged_in, only: %i[new, create, destroy]
+  before_action :is_not_is_logged_in, only: %i[new, create]
 
   def new; end
 
@@ -25,16 +25,16 @@ class SessionsController < ApplicationController
 
   def destroy
     flash[:success] = 'Ai iesit din cont'
-    log_out if logged_in?
+    log_out if is_logged_in?
     redirect_to root_url
   end
 
   private
 
-  # def not_logged_in
-  #   return unless logged_in?
-  #
-  #   flash[:danger] = "Nu ai acces la acea pagina"
-  #   redirect_to root_url
-  # end
+  def is_not_is_logged_in
+    return unless is_logged_in?
+
+    flash[:danger] = "Nu ai acces la acea pagina"
+    redirect_to root_url
+  end
 end
