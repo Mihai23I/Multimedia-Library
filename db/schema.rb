@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_091408) do
+ActiveRecord::Schema.define(version: 2019_08_27_094836) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.decimal "latitude"
-    t.decimal "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "country"
+    t.integer "coordinate_id"
+    t.index ["coordinate_id"], name: "index_cities_on_coordinate_id"
+  end
+
+  create_table "coordinates", force: :cascade do |t|
+    t.decimal "latitude", null: false
+    t.decimal "longitude", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coordinates_remove_from_cities_and_locations", force: :cascade do |t|
   end
 
   create_table "items", force: :cascade do |t|
@@ -30,12 +40,12 @@ ActiveRecord::Schema.define(version: 2019_08_27_091408) do
   create_table "locations", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
-    t.decimal "latitude", null: false
-    t.decimal "longitude", null: false
     t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "alternative_contact"
+    t.integer "coordinate_id"
+    t.index ["coordinate_id"], name: "index_locations_on_coordinate_id"
   end
 
   create_table "locations_physical_items", id: false, force: :cascade do |t|
