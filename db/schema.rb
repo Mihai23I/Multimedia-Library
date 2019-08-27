@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_112710) do
+ActiveRecord::Schema.define(version: 2019_08_27_132733) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -28,13 +28,22 @@ ActiveRecord::Schema.define(version: 2019_08_27_112710) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "coordinates_remove_from_cities_and_locations", force: :cascade do |t|
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "physical_item_id"
+    t.date "burrow_date", null: false
+    t.date "return_date", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["physical_item_id"], name: "index_loans_on_physical_item_id"
+    t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -50,17 +59,27 @@ ActiveRecord::Schema.define(version: 2019_08_27_112710) do
     t.index ["coordinate_id"], name: "index_locations_on_coordinate_id"
   end
 
-  create_table "locations_physical_items", id: false, force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "physical_item_id"
-    t.index ["location_id"], name: "index_locations_physical_items_on_location_id"
-    t.index ["physical_item_id"], name: "index_locations_physical_items_on_physical_item_id"
-  end
-
   create_table "physical_items", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
+    t.integer "location_id"
+    t.index ["item_id"], name: "index_physical_items_on_item_id"
+    t.index ["location_id"], name: "index_physical_items_on_location_id"
+  end
+
+  create_table "physical_videos", force: :cascade do |t|
+    t.integer "physical_item_id"
+    t.integer "video_id"
+    t.boolean "is_3d", default: false
+    t.string "format"
+    t.string "resolution"
+    t.string "sound"
+    t.text "other_information"
+    t.string "dubbed"
+    t.index ["physical_item_id"], name: "index_physical_videos_on_physical_item_id"
+    t.index ["video_id"], name: "index_physical_videos_on_video_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +119,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_112710) do
     t.string "poster_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "language"
     t.index ["item_id"], name: "index_videos_on_item_id"
   end
 

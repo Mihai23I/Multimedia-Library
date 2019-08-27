@@ -5,7 +5,7 @@ class Location < ApplicationRecord
   validates :address, presence: true
   validates :schedule, presence: true
 
-  has_and_belongs_to_many :physical_items
+  has_many :physical_items
   belongs_to :coordinate
 
   private
