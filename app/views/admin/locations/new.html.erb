@@ -1,0 +1,38 @@
+<h1>Adauga o locatie</h1>
+<br>
+
+<%= form_for @location, url: admin_locations_path do |f| %>
+
+  <ul>
+    <% @location.errors.full_messages.each do |msg| %>
+      <li class="text-danger"> <%= msg %></li>
+    <% end %>
+  </ul>
+
+  <div class="form-group row">
+    <%= f.label :nume, class: "col-sm-2 col-form-label" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :adresa, class: "col-sm-2 col-form-label" %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :oras, class: "col-sm-2 col-form-label"%>
+    <%= f.collection_select :city_id, City.order(:name),:id,:name, include_blank: true, class: "browser-default custom-select" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :program, class: "col-sm-2 col-form-label" %>
+    <%= f.text_field :schedule %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :metode_de_contact, class: "col-sm-2 col-form-label" %>
+    <%= f.text_area :alternative_contact %>
+  </div>
+
+  <%= f.submit "Adauga locatia", class: "btn btn-primary" %>
+<% end %>

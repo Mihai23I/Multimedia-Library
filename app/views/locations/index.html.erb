@@ -1,0 +1,34 @@
+<h1>Locatii</h1>
+In aceasta pagina se pot afla informatii legate de locatiile de imprumut ale obiectelor. Daca ati introdus orasul in detaliile contului, locatiile vor fi ordonate
+dupa distanta fata de dumneavoastra.
+<br>
+<% if admin? %>
+  <%= link_to 'Adauga o noua locatie', new_admin_location_path, class: "btn btn-primary" %>
+<% end %>
+<br>
+<div class="row">
+
+<%= paginate @locations %>
+<% @locations.each do |location| %>
+<div class="col-lg-6 col-md-6 mb-4">
+    <div class="card h-100 text-center">
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= location.name %>
+          </h4>
+          <br>
+          <p class="card-text"> Adresa: <br>
+            <%= "#{location.address}" %> </p>
+          <p class="card-text"> Program: <br>
+            <%= "#{location.schedule}" %> </p>
+          <% unless location.alternative_contact.blank? %>
+          <p class="card-text"> Alte metode de contact: <br>
+            <%= "#{location.alternative_contact}" %> </p>
+          <% end %>
+        </div>
+    </div>
+</div>
+<% end %>
+</div>
+<br>
+<%= paginate @locations %>

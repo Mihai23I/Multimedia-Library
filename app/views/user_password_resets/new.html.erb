@@ -4,7 +4,7 @@
 <p>Completează urmatorul formular pentru a primi un mail pentru recuperarea parolei:</p>
 <%= form_for :password_reset, url: user_password_resets_path do |f| %>
 
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :email, class: "col-sm-2 col-form-label" %>
     <%= f.email_field :email, class: "textinput", placeholder: "Introdu adresa de mail" %>
   </div>

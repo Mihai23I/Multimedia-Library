@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   resources :videos, only: [:index, :show]
   namespace :admin do
     resources :videos, only: [:new, :create, :edit, :update]
+    resources :locations, only: [:new, :create, :edit, :update]
   end
 
-  get 'redirect_videos', to: 'static_pages#redirect_to_videos'
+  resources :locations, only: [:index]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

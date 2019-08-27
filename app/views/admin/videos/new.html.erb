@@ -1,11 +1,11 @@
 <h1>New Video</h1>
 <%= form_for :video, url: admin_videos_path do |f| %>
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :imdb_id, class: "col-sm-2 col-form-label" %>
     <%= f.text_field :imdb_id, class: "textinput" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group row">
     <%= f.label :trailer_youtube_url, class: "col-sm-2 col-form-label" %>
     <%= f.text_field :trailer_url, class: "textinput", allow_blank: true %>
   </div>

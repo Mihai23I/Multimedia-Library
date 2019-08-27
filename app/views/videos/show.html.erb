@@ -10,7 +10,7 @@
 
     <br>
     <% unless @video.trailer_url.blank? %>
-      <h3> Vizualizeaza trailer: </h3>
+      <h4> Vizualizeaza trailer: </h4>
       <iframe width="300" height="200" src="<%= "#{@youtube_video}" %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
   </div>
@@ -45,4 +45,3 @@
 
 </div>
 </div>
-<h1 class="my-4"><%= @video.item.name %></h1>
