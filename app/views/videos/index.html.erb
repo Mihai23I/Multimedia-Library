@@ -4,13 +4,15 @@
 
     <h1 class="my-4">Filme</h1>
     <% if admin? %>
-    <%= link_to "Adauga filme", new_admin_video_path %>
+    <%= button_to "Adauga filme", new_admin_video_path, method: :get, class: "btn btn-primary" %>
     <% end %>
-
-    <%= form_for Video.search(params[:q]), as: :q, url: videos_path, method: :get do |f| %>
-      <div class="justify-content-center"> <%= f.submit 'Aplica filtre', class: "btn btn-primary btn-sm"%> </div> <br>
+    <br>
+    <div class="justify-content-center"><%= button_to "Ignora filtre", videos_path, method: :get, class: "btn btn-outline-danger" %></div>
+    <br>
+    <%= form_tag(videos_url, method: :get) do %>
+      <div class="justify-content-center"> <%= submit_tag 'Aplica filtre', class: "btn btn-dark"%> </div> <br>
       <div class="list-group">
-        <div class="list-group-item">Cauta: <%= f.text_field :year, class: "form-control-sm input-sm"%> </div>
+        <div class="list-group-item">Titlu: <%= text_field_tag :name, nil, class: "form-control-sm input-sm"%> </div>
         <div class="list-group-item">Category 2</div>
         <div class="list-group-item">Category 3</div>
       </div>
@@ -30,9 +32,12 @@
           <%= image_tag(video.poster_url, :alt => "", style: "width:252px;height:430px;") %>
           <div class="card-body">
             <h4 class="card-title">
-              <%= link_to video.item.name, video_path(video) %>
+              <%= link_to "#{video.item.name} (#{video.year})", video_path(video) %>
             </h4>
-            <p class="card-text">An: <%= video.year %> <br> Rating imdb: <%= video.imdb_rating %> <br><br> Actori principali: <%= video.actors %> </p>
+            <p class="card-text"> Rating imdb: <%= video.imdb_rating %> </p>
+            <p class="card-text"> Gen: <%= video.genres %></p>
+            <p class="card-text"> Actori: <%= video.actors %> </p>
+
           </div>
           <div class="card-footer">
             <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small>

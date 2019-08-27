@@ -20,6 +20,23 @@ class Video < ApplicationRecord
 
   paginates_per 12
 
+  scope :search_name, lambda { |string|
+    return nil if string.blank?
+
+    terms = string.downcase.split(/\s+/)
+
+    terms = terms.map do |e|
+      ('%' + e.tr('*', '%') + '%').gsub(/%+/, '%')
+    end
+    num_or_conds = 1
+    joins(:item).where(
+      terms.map do |_term|
+        '(LOWER(items.name) LIKE ?)'
+      end.join(' AND '),
+      *terms.map { |e| [e] * num_or_conds }.flatten
+    )
+  }
+
   private
 
   def valid_poster_url?
@@ -36,7 +53,7 @@ class Video < ApplicationRecord
 
   def uri?(string)
     uri = URI.parse(string)
-    %w( http https ).include?(uri.scheme)
+    %w[http https].include?(uri.scheme)
   rescue URI::BadURIError
     false
   rescue URI::InvalidURIError

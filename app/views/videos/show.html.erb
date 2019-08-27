@@ -1,0 +1,48 @@
+<div class="container">
+<h1 class="my-4"><%= "#{@video.item.name} (#{@video.year})" %></h1>
+<div class="row">
+
+  <div class="col-lg-4">
+    <br>
+    <div class="list-group">
+      <%= image_tag(@video.poster_url, :alt => "", style: "width:252px;height:430px;") %>
+    </div>
+
+    <br>
+    <% unless @video.trailer_url.blank? %>
+      <h3> Vizualizeaza trailer: </h3>
+      <iframe width="300" height="200" src="<%= "#{@youtube_video}" %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %>
+  </div>
+
+  <div class="col-lg-8">
+
+    <div class="card card-outline-secondary my-4">
+      <div class="card-header">
+        Detalii despre film
+      </div>
+      <div class="card-body">
+        <p class="card-text">Data lansarii: <%= Date.parse(@video.released.to_s).strftime("%a, %d %b %Y") %></p>
+        <p class="card-text">Tip: <%= @video.category.capitalize %> </p>
+        <p class="card-text">Genuri: <%= @video.genres %> </p>
+        <p class="card-text">Imdb rating: <%= @video.imdb_rating %> </p>
+        <p class="card-text">Premii: <%= @video.awards%>
+        <hr>
+        <p class="card-text">Director: <%= @video.director %></p>
+        <p class="card-text">Scriitori: <%= @video.writer %></p>
+        <p class="card-text">Actori principali: <%= @video.actors %></p>
+        <hr>
+        <p class="card-text"> Pagina imdb: <%= link_to "Link", @video.imdb_url %>
+        <hr>
+        <p class="card-text">Acest film este disponibil in urmatoarele locatii: </p>
+        <p class="card-text"><a href="#" class="btn btn-primary">Inchiriaza film</a> - Biblioteca X - strada bla bla bla bla </p>
+        <hr>
+        Poti vedea toate optiunile aici: <a href="#" class="btn btn-success">Vezi toate optiunile</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+<h1 class="my-4"><%= @video.item.name %></h1>
