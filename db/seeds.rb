@@ -15,7 +15,12 @@ cities.each do |city|
   City.create(name: city, country: "Romania")
 end
 
-User.create!(name: 'Example User',
+Location.create!(name: "Biblioteca Națională a României", address: "B-dul Unirii nr. 22, sector 3, București", schedule: "De la ora 8 la 20")
+
+
+Client.create!(name: 'Example user')
+
+User.create!(client: Client.first,
              email: 'admin@example.com',
              password: '123456',
              password_confirmation: '123456',
@@ -23,27 +28,3 @@ User.create!(name: 'Example User',
              activated: true,
              activated_at: Time.zone.now,
              city_id: City.first.id)
-
-50.times do |n|
-  name = Faker::Name.name
-  email = "example-#{n + 1}@example.com"
-  password = 'password'
-  User.create!(name: name,
-               email: email,
-               password: password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now,
-               city_id: City.first.id)
-end
-
-t.string "name", null: false
-t.string "address", null: false
-t.string "schedule"
-t.datetime "created_at", null: false
-t.datetime "updated_at", null: false
-t.text "alternative_contact"
-t.integer "coordinate_id"
-t.integer "city_id"
-
-Location.create!(name: "Biblioteca Națională a României", address: "	B-dul Unirii nr. 22, sector 3, București", city: City.find_by(name: "București"), schedule: "De la ora 8 la 20")

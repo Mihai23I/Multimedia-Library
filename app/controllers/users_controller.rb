@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   before_action :is_logged_in_user, only: %i[edit update]
   before_action :correct_user, only: %i[edit update]
   before_action :is_not_is_logged_in, only: %i[new create]
+
   def new
     @user = User.new
+    @user.build_client
   end
 
   def create

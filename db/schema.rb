@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_08_30_153411) do
 
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -24,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_08_30_153411) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "phone", limit: 15
+    t.string "phone", limit: 15
     t.string "address"
-    t.integer "unique_identifier_code"
+    t.string "unique_identifier_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
