@@ -1,4 +1,4 @@
-<h1>Buna <%= @user.name %>,</h1>
+<h1>Buna <%= @user.client.name %>,</h1>
 Bine ai venit pe platforma bibliotecii multimedia!
 <br>
 Pentru a activa contul de utilizator acceseaza acest <%= link_to "link", edit_account_activation_url(@user.activation_token, email: @user.email) %>.

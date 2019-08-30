@@ -2,31 +2,13 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-# Used to stylize datepickers
-gem 'bootstrap-datepicker-rails', '1.8.0.1'
-# Used to enable bootstrap in the application
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails', '4.3.5'
-gem 'faker', '1.6.6'
 
-# Added to import movies
-gem 'omdb-api', '1.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                      '~> 5.2.1'
-# Used for pagination
-gem 'kaminari', '0.17.0'
-
-gem 'bootstrap-kaminari-views', '0.0.5'
 # adds secured password
-gem 'bcrypt', '3.1.7'
-# Used to show all the cities in Romania
-gem 'city-state', '0.0.13'
-# Used to calculate the distance between 2 cities
-gem 'geocoder', '1.3.7'
-# Used for filters, sorts
-gem 'filterrific',                '5.1.0'
-# Used for searches
-gem 'ransack',                    '~> 2.1.1'
+gem 'bcrypt',                     '3.1.7'
+# Used to obtain coordinates of different places
+gem 'geocoder',                   '1.3.7'
 # Use Puma as the app server
 gem 'puma',                       '3.12.0'
 # Use SCSS for stylesheets
@@ -45,8 +27,25 @@ gem 'bootsnap',                   '1.3.2', require: false
 gem 'tzinfo-data',                '1.2018.5', platforms: %i[mingw mswin x64_mingw jruby]
 # Tame Rails' multi-line logging into a single line per request
 gem 'lograge',                    '0.10.0'
-# This gem embeddes the jQuery colorpicker in the Rails asset pipeline.
-gem 'jquery-minicolors-rails',    '2.2.6.1'
+
+gem 'jquery-rails', '4.3.5'
+
+# Used to enable bootstrap in the application
+gem 'bootstrap', '~> 4.3.1'
+# Used to stylize datepickers
+gem 'bootstrap-datepicker-rails', '1.8.0.1'
+
+gem 'faker', '1.6.6'
+gem 'rails-admin-scaffold', '0.1.0'
+# Used for searches
+gem 'ransack',                    '~> 2.1.1'
+# Added to import movies
+gem 'omdb-api', '1.4.2'
+
+# Used for pagination
+gem 'kaminari', '0.17.0'
+
+gem 'bootstrap-kaminari-views', '0.0.5'
 
 group :test do
   # Used for testing (TDD, BDD), mocking, benchmarking

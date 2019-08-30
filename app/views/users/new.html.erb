@@ -26,26 +26,34 @@
     <%= f.password_field :password_confirmation, class: "textinput" %>
   </div>
   <br><br>
-  <p>Informații personale:</p>
-  <div class="form-group row">
-    <%= f.label :nume, class: "col-sm-2 col-form-label"%>
-    <%= f.text_field :name, class: "textinput" %>
-  </div>
+  <p>Informații client:</p>
 
-  <div class="form-group row">
-    <%= f.label :oras, class: "col-sm-2 col-form-label"%>
-    <%= f.collection_select :city_id, City.order(:name),:id,:name, include_blank: true, class: "browser-default custom-select" %>
-  </div>
+  <%= f.fields_for :client do |f2| %>
+    <div class="form-group row">
+      <%= f2.label :nume, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :name, class: "textinput" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :adresă, class: "col-sm-2 col-form-label"%>
-    <%= f.text_field :address, class: "textinput" %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :oras, class: "col-sm-2 col-form-label"%>
+      <%= f.collection_select :city_id, City.order(:name),:id,:name, include_blank: true, class: "browser-default custom-select" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :număr_de_telefon, class: "col-sm-2 col-form-label"%>
-    <%= f.text_field :phone, class: "textinput" %>
-  </div>
+    <div class="form-group row">
+      <%= f2.label :adresă, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :address, class: "textinput" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f2.label :număr_de_telefon, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :phone, class: "textinput" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f2.label :cnp, 'CNP', class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :unique_identifier_code, class: "textinput" %>
+    </div>
+  <% end %>
 
   <%= f.submit "Înregistrare cont nou", class: "btn btn-primary" %>
 <% end %>
