@@ -5,15 +5,13 @@ class User < ApplicationRecord
   before_create :create_activation_digest
 
   belongs_to :city
-  has_many :physical_items, through: :loans
+  belongs_to :client
+  accepts_nested_attributes_for :client
 
-  validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :address, length: { maximum: 255 }
-  validates :phone, length: { is: 10 }, allow_nil: true, allow_blank: true, numericality: true
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
