@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_30_153411) do
 
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

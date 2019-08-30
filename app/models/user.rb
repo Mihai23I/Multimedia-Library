@@ -7,6 +7,9 @@ class User < ApplicationRecord
   belongs_to :city
   belongs_to :client
   accepts_nested_attributes_for :client
+  
+  has_many :physical_items, through: :loans
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
