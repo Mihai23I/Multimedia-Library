@@ -11,6 +11,7 @@
       <tr>
         <th>ID<th>
         <th>Locatie</th>
+        <th>Oras</th>
         <th>Format</th>
         <th>Rezolutie</th>
         <th>Detalii sunet</th>
@@ -27,6 +28,7 @@
           <td class="align-middle"><%= %></td>
           <td class="align-middle"><%= physical_video.id %></td>
           <td class="align-middle"><%= physical_video.physical_item.location.name %></td>
+          <td class="align-middle"><%= physical_video.physical_item.location.city.name %></td>
           <td class="align-middle"><%= physical_video.format %></td>
           <td class="align-middle"><%= physical_video.resolution %></td>
           <td class="align-middle"><%= physical_video.sound %></td>
