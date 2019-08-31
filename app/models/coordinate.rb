@@ -8,4 +8,6 @@ class Coordinate < ApplicationRecord
   def self.determine(address_string)
     Geocoder.search(address_string).first.coordinates
   end
+
+  def self.calculate_distance(coordinates1, coordinates2)
 end

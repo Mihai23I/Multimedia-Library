@@ -23,7 +23,7 @@ class Admin::VideosController < AdminsController
 
 
   def video_params(params)
-    params.require(:video).permit(:year, :released, :director, :actors, :writer, :genres, :category, :awards, :rated, :imdb_rating, :imdb_url, :poster_url, :trailer_url)
+    params.require(:video).permit(:year, :released, :director, :actors, :writer, :genres, :category, :awards, :rated, :imdb_rating, :imdb_url, :poster_url, :trailer_url, :language)
   end
 
   def item_params(params)

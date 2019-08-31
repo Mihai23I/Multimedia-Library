@@ -24,9 +24,9 @@
       <div class="card-body">
         <p class="card-text">Data lansarii: <%= Date.parse(@video.released.to_s).strftime("%a, %d %b %Y") %></p>
         <p class="card-text">Tip: <%= @video.category.capitalize %> </p>
+        <p class="card-text">Limba: <%= @video.language %> </p>
         <p class="card-text">Genuri: <%= @video.genres %> </p>
         <p class="card-text">Imdb rating: <%= @video.imdb_rating %> </p>
-        <p class="card-text">Premii: <%= @video.awards%>
         <hr>
         <p class="card-text">Director: <%= @video.director %></p>
         <p class="card-text">Scriitori: <%= @video.writer %></p>
@@ -35,7 +35,7 @@
         <p class="card-text"> Pagina imdb: <%= link_to "Link", @video.imdb_url %>
         <hr>
         <p class="card-text">Acest film este disponibil in urmatoarele locatii: </p>
-        <p class="card-text"><a href="#" class="btn btn-primary">Inchiriaza film</a> - Biblioteca X - strada bla bla bla bla </p>
+        <p class="card-text"><a href="#" class="btn btn-primary">Inchiriaza film</a> - <%= "#{Location.first.name} - #{Location.first.address}" %> </p>
         <hr>
         Poti vedea toate optiunile aici: <a href="#" class="btn btn-success">Vezi toate optiunile</a>
       </div>
