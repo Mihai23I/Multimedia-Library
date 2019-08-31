@@ -1,4 +1,4 @@
-class Admin::LocationsController < Admin::AdminsController
+class Admin::LocationsController < AdminsController
   def new
     @location = Location.new()
   end

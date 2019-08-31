@@ -1,4 +1,4 @@
-class Admin::VideosController < Admin::AdminsController
+class Admin::VideosController < AdminsController
   def new
   end
 

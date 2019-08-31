@@ -1,6 +1,8 @@
 class AdminsController < ApplicationController
   before_action :check_admin
 
+  private
+
   def check_admin
     return true if admin?
 
