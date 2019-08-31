@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_213410) do
+ActiveRecord::Schema.define(version: 2019_08_31_065108) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2019_08_30_213410) do
   create_table "coordinates", force: :cascade do |t|
     t.decimal "latitude", null: false
     t.decimal "longitude", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "global_settings", force: :cascade do |t|
+    t.string "application_name", default: "Biblioteca Multimedia", null: false
+    t.integer "maximum_days_for_burrowing", default: 30, null: false
+    t.integer "maximum_items_per_client", default: 10, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

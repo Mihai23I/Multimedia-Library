@@ -5,7 +5,7 @@ class Coordinate < ApplicationRecord
   has_one :city
   has_one :location
 
-  def self.determine(address)
-    Geocoder.search(address).first.coordinates
+  def self.determine(address_string)
+    Geocoder.search(address_string).first.coordinates
   end
 end

@@ -36,6 +36,8 @@ class Admin::VideosController < Admin::AdminsController
     params[:video][:released] = movie.released
     params[:video][:director] = movie.director
     params[:video][:actors] = movie.actors
+    params[:video][:language] = movie.language
+    params[:video][:rated] = movie.rated
     params[:video][:writer] = movie.writer
     params[:video][:genres] = movie.genre
     params[:video][:category] = movie.type
