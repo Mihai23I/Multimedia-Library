@@ -10,7 +10,7 @@ class Admin::LocationsController < AdminsController
       redirect_to locations_url
     else
       flash.now[:danger] = 'Locatia nu a fost adaugat'
-      render 'index'
+      render 'new'
     end
   end
 

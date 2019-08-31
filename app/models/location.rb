@@ -12,6 +12,7 @@ class Location < ApplicationRecord
 
   def add_coordinates
     coordinates = Coordinate.determine(address)
-    self.create_coordinate(latitude: coordinates[0], longitude: coordinates[1])
+    coordinate = Coordinate.create(latitude: coordinates[0], longitude: coordinates[1])
+    self.coordinate = coordinate
   end
 end

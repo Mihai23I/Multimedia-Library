@@ -14,8 +14,12 @@
         <%= link_to "Filme", videos_url, class: "nav-link" %>
       </li>
 
+      <% if is_logged_in? %>
+        <%= link_to "Împrumuturi", "#", class: "nav-link" %>
+      <% end %>
+
       <li class="nav-item">
-        <%= link_to "Locatii", locations_url, class: "nav-link" %>
+        <%= link_to "Locații", locations_url, class: "nav-link" %>
       </li>
 
       <% if is_logged_in? %>
@@ -26,20 +30,13 @@
           <%= link_to "Log out", logout_path, method: :delete, class: "nav-link" %>
         </li>
       <% else %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Contul Meu
-        </a>
-        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-          <%= link_to "Log in", login_path, class: "dropdown-item text-white" %>
-          <div class="dropdown-divider"></div>
-          <%= link_to "Cont nou", sign_up_path, class: "dropdown-item text-white" %>
-        </div>
-      </li>
-
+        <li class="nav-item">
+          <%= link_to "Log in", login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Cont nou", sign_up_path, class: "nav-link" %>
+        </li>
       <% end %>
-
-
     </ul>
   </div>
 </nav>
@@ -54,7 +51,37 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
-            <%= link_to "Filme", videos_path, class: "nav-link" %>
+            <%= link_to "Global Settings", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Loans", videos_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Clients", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Users", videos_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Items", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Videos", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Physical Items", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Physical Videos", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Locations", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Cities", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Coordinates", "#", class: "nav-link" %>
           </li>
         </ul>
       </div>
