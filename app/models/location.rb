@@ -11,7 +11,8 @@ class Location < ApplicationRecord
   private
 
   def add_coordinates
-    coordinates = GeographicalService.coordinates(address)
-    self.create_coordinate(latitude: coordinates[0], longitude: coordinates[1])
+    coordinates = Coordinate.determine(address)
+    coordinate = Coordinate.create(latitude: coordinates[0], longitude: coordinates[1])
+    self.coordinate = coordinate
   end
 end

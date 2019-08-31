@@ -28,6 +28,19 @@ Rails.application.routes.draw do
     resources :locations, only: [:new, :create, :edit, :update]
   end
 
+  # namespace :administrator do
+  #   resources :clients
+  #   resources :users
+  #   resources :items
+  #   resources :videos
+  #   resources :locations
+  #   resources :cities
+  #   resources :global_settings
+  #   resources :physical_items
+  #   resources :physical_videos
+  #   resources :loans
+  # end
+
   resources :locations, only: [:index]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?

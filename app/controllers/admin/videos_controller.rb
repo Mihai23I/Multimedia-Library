@@ -1,4 +1,4 @@
-class Admin::VideosController < Admin::AdminsController
+class Admin::VideosController < AdminsController
   def new
   end
 
@@ -23,7 +23,7 @@ class Admin::VideosController < Admin::AdminsController
 
 
   def video_params(params)
-    params.require(:video).permit(:year, :released, :director, :actors, :writer, :genres, :category, :awards, :rated, :imdb_rating, :imdb_url, :poster_url, :trailer_url)
+    params.require(:video).permit(:year, :released, :director, :actors, :writer, :genres, :category, :awards, :rated, :imdb_rating, :imdb_url, :poster_url, :trailer_url, :language)
   end
 
   def item_params(params)
@@ -36,6 +36,8 @@ class Admin::VideosController < Admin::AdminsController
     params[:video][:released] = movie.released
     params[:video][:director] = movie.director
     params[:video][:actors] = movie.actors
+    params[:video][:language] = movie.language
+    params[:video][:rated] = movie.rated
     params[:video][:writer] = movie.writer
     params[:video][:genres] = movie.genre
     params[:video][:category] = movie.type

@@ -1,4 +1,4 @@
-class Admin::LocationsController < Admin::AdminsController
+class Admin::LocationsController < AdminsController
   def new
     @location = Location.new()
   end
@@ -10,7 +10,7 @@ class Admin::LocationsController < Admin::AdminsController
       redirect_to locations_url
     else
       flash.now[:danger] = 'Locatia nu a fost adaugat'
-      render 'index'
+      render 'new'
     end
   end
 
