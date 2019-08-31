@@ -8,7 +8,6 @@ class CreateClients < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-  end
 
     remove_column :users, :name, :string
     remove_column :users, :address, :string

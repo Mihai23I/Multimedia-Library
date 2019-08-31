@@ -6,8 +6,10 @@ class City < ApplicationRecord
 
   private
 
+  before_validation :add_coordinates, if: :name_changed?
+
   def add_coordinates
-    coordinates = GeographicalService.coordinates(name)
+    coordinates = Coordinate.determine(name)
     self.create_coordinate(latitude: coordinates[0], longitude: coordinates[1])
   end
 end
