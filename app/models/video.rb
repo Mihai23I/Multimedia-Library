@@ -37,6 +37,12 @@ class Video < ApplicationRecord
     )
   }
 
+  scope :filter_year, lambda { |string|
+    return nil if string.blank?
+
+    where(year: string)
+  }
+
   private
 
   def valid_poster_url?
