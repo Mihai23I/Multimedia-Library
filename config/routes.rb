@@ -2,6 +2,11 @@
 
 Rails.application.routes.draw do
 
+  namespace :administrator do
+    resources :videos
+    resources :items
+  end
+
   root 'static_pages#home'
 
   get 'login', to: 'sessions#new'
