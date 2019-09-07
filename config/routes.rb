@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :administrator do
     resources :videos
     resources :items
+    resources :users
   end
 
   root 'static_pages#home'

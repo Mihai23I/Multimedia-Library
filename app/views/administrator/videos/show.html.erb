@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong>Item:</strong></dt>
+  <dd><%= @video.item_id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Year:</strong></dt>
+  <dd><%= @video.year %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Language:</strong></dt>
+  <dd><%= @video.language %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Released:</strong></dt>
+  <dd><%= @video.released %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Director:</strong></dt>
+  <dd><%= @video.director %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Actors:</strong></dt>
+  <dd><%= @video.actors %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Writer:</strong></dt>
+  <dd><%= @video.writer %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Genres:</strong></dt>
+  <dd><%= @video.genres %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Category:</strong></dt>
+  <dd><%= @video.category %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Awards:</strong></dt>
+  <dd><%= @video.awards %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Rated:</strong></dt>
+  <dd><%= @video.rated %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Imdb rating:</strong></dt>
+  <dd><%= @video.imdb_rating %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Imdb url:</strong></dt>
+  <dd><%= @video.imdb_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Trailer url:</strong></dt>
+  <dd><%= @video.trailer_url %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Poster url:</strong></dt>
+  <dd><%= @video.poster_url %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_administrator_video_path(@video), class: 'btn btn-default' %>
+<%= link_to 'Back', administrator_videos_path, class: 'btn btn-default' %>

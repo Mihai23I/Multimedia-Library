@@ -6,6 +6,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
+        <td><%= item.id %></td>
         <td><%= item.name %></td>
         <td><%= link_to 'Show', [:administrator, item], class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Edit', edit_administrator_item_path(item), class: 'btn btn-default btn-xs' %></td>

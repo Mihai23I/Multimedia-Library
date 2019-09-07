@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong>Id:</strong></dt>
+  <dd><%= @user.id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Client:</strong></dt>
+  <dd><%= @user.client_id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Email:</strong></dt>
+  <dd><%= @user.email %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Admin:</strong></dt>
+  <dd><%= @user.admin %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>City:</strong></dt>
+  <dd><%= @user.city_id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Activated:</strong></dt>
+  <dd><%= @user.activated %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Activated at:</strong></dt>
+  <dd><%= @user.activated_at %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_administrator_user_path(@user), class: 'btn btn-default' %>
+<%= link_to 'Back', administrator_users_path, class: 'btn btn-default' %>
