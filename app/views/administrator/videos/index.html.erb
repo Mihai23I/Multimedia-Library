@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>Listing videos</h1>
+</div>
+<%= link_to 'New Video', new_administrator_video_path, class: 'btn btn-primary' %>
+<div class="center-block"> <%= paginate @videos %> </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item ID</th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Language</th>
+      <th>Released</th>
+      <th>Actors</th>
+      <th>Genres</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.id %></td>
+        <td><%= video.item_id %></td>
+        <td><%= video.item.name %></td>
+        <td><%= video.year %></td>
+        <td><%= video.language %></td>
+        <td><%= video.released %></td>
+        <td><%= video.actors %></td>
+        <td><%= video.genres %></td>
+        <td><%= link_to 'Show', [:administrator, video], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_video_path(video), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, video], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="center-block"> <%= paginate @videos %> </div>
+<br>

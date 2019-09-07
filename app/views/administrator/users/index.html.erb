@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1>Listing users</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client ID</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>City</th>
+      <th>Activated</th>
+      <th>Activated at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.client_id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.city.name %></td>
+        <td><%= user.activated %></td>
+        <td><%= user.activated_at %></td>
+        <td><%= link_to 'Show', [:administrator, user], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_user_path(user), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, user], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_administrator_user_path, class: 'btn btn-primary' %>

@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Listing locations</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Schedule</th>
+      <th>Alternative contact</th>
+      <th>Coordinate</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.name %></td>
+        <td><%= location.address %></td>
+        <td><%= location.schedule %></td>
+        <td><%= location.alternative_contact %></td>
+        <td><%= location.coordinate_id %></td>
+        <td><%= location.city_id %></td>
+        <td><%= link_to 'Show', [:administrator, location], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_location_path(location), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, location], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Location', new_administrator_location_path, class: 'btn btn-primary' %>

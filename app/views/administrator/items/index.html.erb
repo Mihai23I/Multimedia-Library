@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>Listing items</h1>
+</div>
+<%= link_to 'New Item', new_administrator_item_path, class: 'btn btn-primary' %>
+<div class="center-block"> <%= paginate @items %> </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= link_to 'Show', [:administrator, item], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_item_path(item), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="center-block"> <%= paginate @items %> </div>

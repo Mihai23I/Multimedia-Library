@@ -1,7 +1,6 @@
 <div class="row">
 
   <div class="col-lg-3">
-
     <h1 class="my-4">Filme</h1>
     <% if admin? %>
     <%= button_to "Adauga filme", new_admin_video_path, method: :get, class: "btn btn-primary" %>
@@ -13,10 +12,10 @@
 
       <div class="list-group">
         <div class="list-group-item">Titlu: <%= text_field_tag :name, nil, class: "form-control form-control-sm input-sm"%> </div>
-        <div class="list-group-item">Anul apariției: <%= select_tag :year, raw("<option></option><option>2010</option>"), class: "form-control form-control-sm input-sm"%></div>
-        <div class="list-group-item">Gen: <%= select_tag :year, raw("<option></option><option>2010</option>"), class: "form-control form-control-sm input-sm"%></div>
-        <div class="list-group-item">Actori principali: <%= text_field_tag :name, nil, class: "form-control form-control-sm input-sm"%> </div>
-        <div class="list-group-item">Locatii: <%= select_tag :year, raw("<option></option><option>2010</option>"), class: "form-control form-control-sm input-sm"%> </div>
+        <div class="list-group-item">Anul apariției: <%= select_tag :year, options_for_select(select_year), class: "form-control form-control-sm input-sm"%></div>
+        <div class="list-group-item">Gen: <%= select_tag :genre, options_for_select(select_genre), class: "form-control form-control-sm input-sm"%></div>
+        <div class="list-group-item">Actori principali: <%= text_field_tag :actors, nil, class: "form-control form-control-sm input-sm"%> </div>
+        <div class="list-group-item">Locatii: <%= select_tag :locations, options_for_select(select_location), class: "form-control form-control-sm input-sm"%> </div>
       </div>
     <% end %>
 
@@ -42,7 +41,7 @@
 
           </div>
           <div class="card-footer">
-            <small class="text-muted"><div class="btn-group"><%= button_to "Vezi detalii", "#", method: :get, class: "btn btn-success btn-sm btn-space" %><%= button_to "Imprumuta", "#", method: :get, class: "btn btn-primary btn-sm" %></div></small>
+            <small class="text-muted"><div class="btn-group"><%= button_to "Vezi detalii", video_path(video), method: :get, class: "btn btn-success btn-sm btn-space" %><%= button_to "Imprumuta", "#", method: :get, class: "btn btn-primary btn-sm" %></div></small>
           </div>
         </div>
       </div>

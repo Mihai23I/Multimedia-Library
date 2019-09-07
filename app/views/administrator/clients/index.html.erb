@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Listing clients</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Unique identifier code</th>
+      <th>Other information</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.id %></td>
+        <td><%= client.name %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.address %></td>
+        <td><%= client.unique_identifier_code %></td>
+        <td><%= client.other_information %></td>
+        <td><%= link_to 'Show', [:administrator, client], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_client_path(client), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, client], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client', new_administrator_client_path, class: 'btn btn-primary' %>

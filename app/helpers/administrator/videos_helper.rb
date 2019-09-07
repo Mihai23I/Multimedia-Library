@@ -1,0 +1,2 @@
+module Administrator::VideosHelper
+end

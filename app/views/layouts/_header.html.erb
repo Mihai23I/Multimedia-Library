@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to "Biblioteca Multimedia", root_path, class: "navbar-brand" %>
+      <%= link_to GlobalSetting.first.application_name, root_path, class: "navbar-brand" %>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -51,37 +51,37 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
-            <%= link_to "Global Settings", "#", class: "nav-link" %>
+            <%= link_to "Global Settings", edit_administrator_global_setting_path(1), class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Loans", videos_path, class: "nav-link" %>
+            <%= link_to "Loans", administrator_loans_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Clients", "#", class: "nav-link" %>
+            <%= link_to "Clients", administrator_clients_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Users", videos_path, class: "nav-link" %>
+            <%= link_to "Users", administrator_users_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Items", "#", class: "nav-link" %>
+            <%= link_to "Items", administrator_items_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Videos", "#", class: "nav-link" %>
+            <%= link_to "Videos", administrator_videos_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Physical Items", "#", class: "nav-link" %>
+            <%= link_to "Physical Items", administrator_physical_items_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Physical Videos", "#", class: "nav-link" %>
+            <%= link_to "Physical Videos", administrator_physical_videos_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Locations", "#", class: "nav-link" %>
+            <%= link_to "Locations", administrator_locations_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Cities", "#", class: "nav-link" %>
+            <%= link_to "Cities", administrator_cities_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Coordinates", "#", class: "nav-link" %>
+            <%= link_to "Coordinates", administrator_coordinates_path, class: "nav-link" %>
           </li>
         </ul>
       </div>

@@ -28,18 +28,19 @@ Rails.application.routes.draw do
     resources :locations, only: [:new, :create, :edit, :update]
   end
 
-  # namespace :administrator do
-  #   resources :clients
-  #   resources :users
-  #   resources :items
-  #   resources :videos
-  #   resources :locations
-  #   resources :cities
-  #   resources :global_settings
-  #   resources :physical_items
-  #   resources :physical_videos
-  #   resources :loans
-  # end
+  namespace :administrator do
+    resources :clients
+    resources :users
+    resources :items
+    resources :videos
+    resources :locations
+    resources :cities
+    resources :global_settings, only: [:edit, :update]
+    resources :physical_items
+    resources :physical_videos
+    resources :loans
+    resources :coordinates
+  end
 
   resources :locations, only: [:index]
 

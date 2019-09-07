@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong>Client:</strong></dt>
+  <dd><%= @loan.client_id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Physical item:</strong></dt>
+  <dd><%= @loan.physical_item_id %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Burrow date:</strong></dt>
+  <dd><%= @loan.burrow_date %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Return date:</strong></dt>
+  <dd><%= @loan.return_date %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Status:</strong></dt>
+  <dd><%= @loan.status %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_administrator_loan_path(@loan), class: 'btn btn-default' %>
+<%= link_to 'Back', administrator_loans_path, class: 'btn btn-default' %>

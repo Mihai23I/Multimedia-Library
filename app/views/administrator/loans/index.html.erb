@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Listing loans</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Physical item</th>
+      <th>Burrow date</th>
+      <th>Return date</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.client_id %></td>
+        <td><%= loan.physical_item_id %></td>
+        <td><%= loan.burrow_date %></td>
+        <td><%= loan.return_date %></td>
+        <td><%= loan.status %></td>
+        <td><%= link_to 'Show', [:administrator, loan], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_loan_path(loan), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, loan], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan', new_administrator_loan_path, class: 'btn btn-primary' %>

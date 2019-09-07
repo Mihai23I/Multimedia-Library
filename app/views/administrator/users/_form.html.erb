@@ -1,0 +1,68 @@
+<%= form_for([:administrator, @user], html: { class: 'form-horizontal user' }) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :client_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :client_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.label :admin, for: nil do %>
+        <%= f.check_box :admin %>
+        <%= User.human_attribute_name(:admin) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :city_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.label :activated, for: nil do %>
+        <%= f.check_box :activated %>
+        <%= User.human_attribute_name(:activated) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :activated_at, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.datetime_select :activated_at, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

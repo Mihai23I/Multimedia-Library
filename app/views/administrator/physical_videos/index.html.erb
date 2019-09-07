@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1>Listing physical_videos</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Physical item</th>
+      <th>Is 3d</th>
+      <th>Format</th>
+      <th>Resolution</th>
+      <th>Sound</th>
+      <th>Dubbed</th>
+      <th>Other information</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @physical_videos.each do |physical_video| %>
+      <tr>
+        <td><%= physical_video.physical_item_id %></td>
+        <td><%= physical_video.is_3d %></td>
+        <td><%= physical_video.format %></td>
+        <td><%= physical_video.resolution %></td>
+        <td><%= physical_video.sound %></td>
+        <td><%= physical_video.dubbed %></td>
+        <td><%= physical_video.other_information %></td>
+        <td><%= link_to 'Show', [:administrator, physical_video], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_physical_video_path(physical_video), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, physical_video], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Physical video', new_administrator_physical_video_path, class: 'btn btn-primary' %>

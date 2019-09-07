@@ -1,0 +1,112 @@
+<%= form_for([:administrator, @video], html: { class: 'form-horizontal video' }) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @video.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :item_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :item_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :year, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :year, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :language, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :language, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :released, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :released, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :director, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :director, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :actors, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :actors, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :writer, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :writer, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :genres, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :genres, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :category, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :awards, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :awards, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :rated, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :rated, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :imdb_rating, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :imdb_rating, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :imdb_url, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :imdb_url, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :trailer_url, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :trailer_url, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :poster_url, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :poster_url, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
