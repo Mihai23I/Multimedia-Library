@@ -2,6 +2,8 @@
 
 class Video < ApplicationRecord
   belongs_to :item
+  has_many :physical_items, through: :item
+  has_many :locations, through: :physical_items
 
   validates :year, presence: true
   validates :released, presence: true
@@ -35,6 +37,12 @@ class Video < ApplicationRecord
       end.join(' AND '),
       *terms.map { |e| [e] * num_or_conds }.flatten
     )
+  }
+
+  scope :filter_location, lambda { |string|
+    return nil if string.blank?
+
+    join(:locations).where("locations.id = ?", string)
   }
 
   scope :filter_year, lambda { |string|
