@@ -11,16 +11,16 @@
   <%= f.search_field :id_eq, class: "form-control-sm" %>
 
   <%= f.label :email %>
-  <%= f.search_field :email_matches, class: "form-control-sm" %>
+  <%= f.search_field :email_cont_any, class: "form-control-sm" %>
 
-  <%= f.label :city_id %>
+  <%= f.label :city_id, "City ID" %>
   <%= f.search_field :city_id_eq, class: "form-control-sm" %>
   <br>
   <%= f.label :admin %>
-  <%= f.search_field :admin_matches, class: "form-control-sm" %>
+  <%= f.search_field :admin_cont_any, class: "form-control-sm" %>
 
   <%= f.label :activated %>
-  <%= f.search_field :activated_matches, class: "form-control-sm" %>
+  <%= f.search_field :activated_cont_any, class: "form-control-sm" %>
 
   <br>
   <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>

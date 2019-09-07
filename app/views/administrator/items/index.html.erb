@@ -1,13 +1,31 @@
 <div class="page-header">
   <h1>Listing items</h1>
 </div>
+<br>
 <%= link_to 'New Item', new_administrator_item_path, class: 'btn btn-primary' %>
-<div class="center-block"> <%= paginate @items %> </div>
+<br><br>
+<%= search_form_for @q, url: administrator_items_path do |f| %>
+
+  <%= f.label :id %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
+  <%= f.label :name %>
+  <%= f.search_field :name_cont_any, class: "form-control-sm" %>
+
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_items_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @items %>
+<br>
+<%= page_entries_info @items, entry_name: 'client' %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Video</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,6 +37,7 @@
       <tr>
         <td><%= item.id %></td>
         <td><%= item.name %></td>
+        <td><%= link_to item&.video&.id, administrator_video_path(item&.video) if item&.video %></td>
         <td><%= link_to 'Show', [:administrator, item], class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Edit', edit_administrator_item_path(item), class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Destroy', [:administrator, item], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
@@ -26,5 +45,3 @@
     <% end %>
   </tbody>
 </table>
-
-<div class="center-block"> <%= paginate @items %> </div>

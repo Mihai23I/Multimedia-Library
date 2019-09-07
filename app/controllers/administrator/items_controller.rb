@@ -3,7 +3,8 @@ class Administrator::ItemsController < AdminsController
 
   # GET /administrator/items
   def index
-    @items = Item.all.order(updated_at: :desc).page params[:page]
+    @q = Item.ransack(params[:q])
+    @items = @q.result.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /administrator/items/1
