@@ -3,7 +3,8 @@ class Administrator::VideosController < AdminsController
 
   # GET /administrator/videos
   def index
-    @videos = Video.all.order(updated_at: :desc).page params[:page]
+    @q = Video.ransack(params[:q])
+    @videos = @q.result.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /administrator/videos/1

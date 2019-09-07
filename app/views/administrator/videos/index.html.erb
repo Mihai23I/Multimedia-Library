@@ -1,8 +1,31 @@
 <div class="page-header">
   <h1>Listing videos</h1>
 </div>
-<%= link_to 'New Video', new_administrator_video_path, class: 'btn btn-primary' %>
-<div class="center-block"> <%= paginate @videos %> </div>
+<br>
+<div class="btn-group"><%= link_to 'New Video', new_administrator_video_path, class: 'btn btn-primary' %><%= link_to 'New Video IMDB', new_admin_video_path, class: 'btn btn-success' %></div>
+<br><br>
+<%= search_form_for @q, url: administrator_videos_path do |f| %>
+
+  <%= f.label :id, "ID" %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
+  <%= f.label :item_id, "Item ID" %>
+  <%= f.search_field :item_id_eq, class: "form-control-sm" %>
+
+  <%= f.label :year %>
+  <%= f.search_field :year_eq, class: "form-control-sm" %>
+
+  <%= f.label :genre %>
+  <%= f.search_field :genres_cont_any, class: "form-control-sm" %>
+
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_videos_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @videos %>
+<br>
+<%= page_entries_info @videos, entry_name: 'client' %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -24,7 +47,7 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= video.id %></td>
-        <td><%= video.item_id %></td>
+        <td><%= link_to video.item_id, administrator_item_path(video.item) %></td>
         <td><%= video.item.name %></td>
         <td><%= video.year %></td>
         <td><%= video.language %></td>
