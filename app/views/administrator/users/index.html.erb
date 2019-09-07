@@ -2,11 +2,40 @@
   <h1>Listing users</h1>
 </div>
 
+<br>
+<%= link_to 'New User', new_administrator_user_path, class: 'btn btn-primary' %>
+<br><br>
+<%= search_form_for @q, url: administrator_users_path do |f| %>
+
+  <%= f.label :id %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
+  <%= f.label :email %>
+  <%= f.search_field :email_matches, class: "form-control-sm" %>
+
+  <%= f.label :city_id %>
+  <%= f.search_field :city_id_eq, class: "form-control-sm" %>
+  <br>
+  <%= f.label :admin %>
+  <%= f.search_field :admin_matches, class: "form-control-sm" %>
+
+  <%= f.label :activated %>
+  <%= f.search_field :activated_matches, class: "form-control-sm" %>
+
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_users_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @users %>
+<br>
+<%= page_entries_info @users, entry_name: 'client' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Client ID</th>
+      <th>Client</th>
       <th>Email</th>
       <th>Admin</th>
       <th>City</th>
@@ -22,10 +51,10 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.client_id %></td>
+        <td><%= link_to("#{user.client_id} - #{user.client.name}", administrator_client_path(user.client_id)) %></td>
         <td><%= user.email %></td>
         <td><%= user.admin %></td>
-        <td><%= user.city.name %></td>
+        <td><%= "#{user.city_id} - #{user.city.name}" %></td>
         <td><%= user.activated %></td>
         <td><%= user.activated_at %></td>
         <td><%= link_to 'Show', [:administrator, user], class: 'btn btn-default btn-xs' %></td>
@@ -37,5 +66,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New User', new_administrator_user_path, class: 'btn btn-primary' %>
