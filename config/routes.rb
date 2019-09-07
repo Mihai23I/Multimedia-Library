@@ -2,8 +2,6 @@
 
 Rails.application.routes.draw do
 
-
-
   root 'static_pages#home'
 
   get 'login', to: 'sessions#new'
@@ -37,10 +35,11 @@ Rails.application.routes.draw do
     resources :videos
     resources :locations
     resources :cities
-    resources :global_settings
+    resources :global_settings, only: [:edit, :update]
     resources :physical_items
     resources :physical_videos
     resources :loans
+    resources :coordinates
   end
 
   resources :locations, only: [:index]

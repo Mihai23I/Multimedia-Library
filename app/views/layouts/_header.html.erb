@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to "Biblioteca Multimedia", root_path, class: "navbar-brand" %>
+      <%= link_to GlobalSetting.first.application_name, root_path, class: "navbar-brand" %>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
@@ -57,7 +57,7 @@
             <%= link_to "Loans", administrator_loans_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Clients", "#", class: "nav-link" %>
+            <%= link_to "Clients", administrator_clients_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Users", administrator_users_path, class: "nav-link" %>
