@@ -1,0 +1,40 @@
+<%= form_for([:administrator, @global_setting], html: { class: 'form-horizontal global_setting' }) do |f| %>
+  <% if @global_setting.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@global_setting.errors.count, "error") %> prohibited this global_setting from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @global_setting.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :application_name, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :application_name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :maximum_days_for_burrowing, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :maximum_days_for_burrowing, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :maximum_items_per_client, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :maximum_items_per_client, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

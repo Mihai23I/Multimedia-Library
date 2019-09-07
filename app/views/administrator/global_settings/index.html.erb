@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Listing global_settings</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Application name</th>
+      <th>Maximum days for burrowing</th>
+      <th>Maximum items per client</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @global_settings.each do |global_setting| %>
+      <tr>
+        <td><%= global_setting.application_name %></td>
+        <td><%= global_setting.maximum_days_for_burrowing %></td>
+        <td><%= global_setting.maximum_items_per_client %></td>
+        <td><%= link_to 'Show', [:administrator, global_setting], class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_administrator_global_setting_path(global_setting), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', [:administrator, global_setting], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Global setting', new_administrator_global_setting_path, class: 'btn btn-primary' %>

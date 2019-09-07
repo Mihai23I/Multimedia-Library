@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
 
   namespace :administrator do
+    resources :global_settings
     resources :videos
     resources :items
     resources :users

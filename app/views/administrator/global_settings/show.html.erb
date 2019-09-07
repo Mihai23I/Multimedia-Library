@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<dl class="dl-horizontal">
+  <dt><strong>Application name:</strong></dt>
+  <dd><%= @global_setting.application_name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Maximum days for burrowing:</strong></dt>
+  <dd><%= @global_setting.maximum_days_for_burrowing %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Maximum items per client:</strong></dt>
+  <dd><%= @global_setting.maximum_items_per_client %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_administrator_global_setting_path(@global_setting), class: 'btn btn-default' %>
+<%= link_to 'Back', administrator_global_settings_path, class: 'btn btn-default' %>
