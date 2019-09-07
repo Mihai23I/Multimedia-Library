@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :physical_items
     resources :locations
     resources :loans
+    resources :coordinates
   end
 
   root 'static_pages#home'

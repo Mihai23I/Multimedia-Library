@@ -1,0 +1,2 @@
+module Administrator::CoordinatesHelper
+end
