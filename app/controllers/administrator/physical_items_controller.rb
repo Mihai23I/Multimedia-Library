@@ -3,7 +3,8 @@ class Administrator::PhysicalItemsController < AdminsController
 
   # GET /administrator/physical_items
   def index
-    @physical_items = PhysicalItem.all
+    @q = PhysicalItem.ransack(params[:q])
+    @physical_items = @q.result.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /administrator/physical_items/1
