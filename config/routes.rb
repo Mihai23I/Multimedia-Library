@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :items
     resources :users
     resources :physical_videos
+    resources :physical_items
   end
 
   root 'static_pages#home'

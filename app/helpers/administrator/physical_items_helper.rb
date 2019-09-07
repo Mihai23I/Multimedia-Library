@@ -1,0 +1,2 @@
+module Administrator::PhysicalItemsHelper
+end
