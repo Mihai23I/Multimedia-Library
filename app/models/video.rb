@@ -43,6 +43,30 @@ class Video < ApplicationRecord
     where(year: string)
   }
 
+  scope :search_genre, lambda { |string|
+    return nil if string.blank?
+
+    string = ('%' + string.tr('*', '%') + '%').gsub(/%+/, '%')
+    where("genres LIKE ?", "#{string}%")
+  }
+
+  scope :search_actors, lambda { |string|
+    return nil if string.blank?
+
+    terms = string.downcase.split(/\s+/)
+
+    terms = terms.map do |e|
+      ('%' + e.tr('*', '%') + '%').gsub(/%+/, '%')
+    end
+    num_or_conds = 1
+    where(
+      terms.map do |_term|
+        '(LOWER(actors) LIKE ?)'
+      end.join(' AND '),
+      *terms.map { |e| [e] * num_or_conds }.flatten
+    )
+  }
+
   private
 
   def valid_poster_url?

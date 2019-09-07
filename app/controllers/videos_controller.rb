@@ -1,6 +1,10 @@
 class VideosController < ApplicationController
   def index
     @videos = Video.all.search_name(params[:name])
+                       .filter_year(params[:year])
+                       .search_genre(params[:genre])
+                       .search_actors(params[:actors])
+    @videos = filter_location(@videos, params[:locations])
     @videos = @videos.order(updated_at: :desc).page params[:page]
   end
 
@@ -10,6 +14,18 @@ class VideosController < ApplicationController
   end
 
   private
+
+  def filter_location(videos, location_id)
+    return videos if location_id.blank?
+
+    videos_filtered = {}
+    videos.each do |video|
+      video.item.physical_items.each do |physical_item|
+        videos_filtered.push(video) if physical_item.locations.find_by(location_id: location_id)
+      end
+    end
+    videos_filtered.uniq
+  end
 
   def youtube_embed(youtube_url)
     uri = URI(youtube_url)
