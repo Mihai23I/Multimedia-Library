@@ -6,20 +6,23 @@
 <br><br>
 <%= search_form_for @q, url: administrator_loans_path do |f| %>
 
+  <%= f.label :id %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
   <%= f.label :client_id %>
   <%= f.search_field :client_id_eq, class: "form-control-sm" %>
 
   <%= f.label :physical_item_id %>
   <%= f.search_field :physical_item_id_eq, class: "form-control-sm" %>
 
+  <%= f.label :status %>
+  <%= f.search_field :status_matches, class: "form-control-sm" %>
+  <br>
   <%= f.label :burrow_date %>
   <%= f.date_field :burrow_date_eq, class: "form-control-sm" %>
 
   <%= f.label :return_date %>
   <%= f.date_field :return_date_eq, class: "form-control-sm" %>
-
-  <%= f.label :status %>
-  <%= f.search_field :status_matches, class: "form-control-sm" %>
   <br>
   <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
   <a href="<%= "#{administrator_loans_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
@@ -32,6 +35,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Client</th>
       <th>Physical item</th>
       <th>Burrow date</th>
@@ -46,6 +50,7 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
+        <td><%= loan.id %></td>
         <td><%= "#{loan.client_id} - #{loan.client.name}" %></td>
         <td><%= "#{loan.physical_item_id} - #{loan.physical_item.item.name}" %></td>
         <td><%= loan.burrow_date %></td>

@@ -5,5 +5,5 @@ class Client < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :address, length: { maximum: 255 }
   validates :phone, length: { is: 10 }, allow_nil: true, allow_blank: true, numericality: true
-  validates :unique_identifier_code, length: { is: 13 }, allow_nil: true, allow_blank: true, numericality: true
+  validates :unique_identifier_code, length: { is: 13 }, allow_nil: true, allow_blank: true, numericality: true, uniqueness: true
 end

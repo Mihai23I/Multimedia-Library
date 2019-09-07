@@ -2,13 +2,41 @@
   <h1>Listing clients</h1>
 </div>
 
+<br>
+<%= link_to 'New Client', new_administrator_client_path, class: 'btn btn-primary' %>
+<br><br>
+<%= search_form_for @q, url: administrator_clients_path do |f| %>
+
+  <%= f.label :id %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
+  <%= f.label :name %>
+  <%= f.search_field :name_matches, class: "form-control-sm" %>
+
+  <%= f.label :phone %>
+  <%= f.search_field :phone_matches, class: "form-control-sm" %>
+
+  <%= f.label :unique_identifier_code %>
+  <%= f.search_field :unique_identifier_code_eq, class: "form-control-sm" %>
+
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_clients_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @clients %>
+<br>
+<%= page_entries_info @clients, entry_name: 'client' %>
+
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>User ID</th>
+      <th>Email</th>
       <th>Phone</th>
-      <th>Address</th>
       <th>Unique identifier code</th>
       <th>Other information</th>
       <th></th>
@@ -22,8 +50,9 @@
       <tr>
         <td><%= client.id %></td>
         <td><%= client.name %></td>
+        <td><%= client.user ? link_to("#{client.user&.id}", administrator_user_path(client.user&.id)) : false %></td>
+        <td><%= client.user&.email %></td>
         <td><%= client.phone %></td>
-        <td><%= client.address %></td>
         <td><%= client.unique_identifier_code %></td>
         <td><%= client.other_information %></td>
         <td><%= link_to 'Show', [:administrator, client], class: 'btn btn-default btn-xs' %></td>
@@ -35,5 +64,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Client', new_administrator_client_path, class: 'btn btn-primary' %>
