@@ -1,6 +1,33 @@
 <div class="page-header">
   <h1>Listing loans</h1>
 </div>
+<br>
+<%= link_to 'New Loan', new_administrator_loan_path, class: 'btn btn-primary' %>
+<br><br>
+<%= search_form_for @q, url: administrator_loans_path do |f| %>
+
+  <%= f.label :client_id %>
+  <%= f.search_field :client_id_eq, class: "form-control-sm" %>
+
+  <%= f.label :physical_item_id %>
+  <%= f.search_field :physical_item_id_eq, class: "form-control-sm" %>
+
+  <%= f.label :burrow_date %>
+  <%= f.date_field :burrow_date_eq, class: "form-control-sm" %>
+
+  <%= f.label :return_date %>
+  <%= f.date_field :return_date_eq, class: "form-control-sm" %>
+
+  <%= f.label :status %>
+  <%= f.search_field :status_matches, class: "form-control-sm" %>
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_loans_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @loans %>
+<br>
+<%= page_entries_info @loans, entry_name: 'loan' %>
 
 <table class="table table-striped">
   <thead>
@@ -19,8 +46,8 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
-        <td><%= loan.client_id %></td>
-        <td><%= loan.physical_item_id %></td>
+        <td><%= "#{loan.client_id} - #{loan.client.name}" %></td>
+        <td><%= "#{loan.physical_item_id} - #{loan.physical_item.item.name}" %></td>
         <td><%= loan.burrow_date %></td>
         <td><%= loan.return_date %></td>
         <td><%= loan.status %></td>
@@ -33,5 +60,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Loan', new_administrator_loan_path, class: 'btn btn-primary' %>

@@ -15,13 +15,13 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :client_id, class: 'control-label col-md-2' %>
+    <%= f.label :client_id, raw("Client ID"), class: 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.number_field :client_id, class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :physical_item_id, class: 'control-label col-md-2' %>
+    <%= f.label :physical_item_id, raw("Physical Item ID"), class: 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.number_field :physical_item_id, class: 'form-control' %>
     </div>
@@ -41,7 +41,7 @@
   <div class="form-group">
     <%= f.label :status, class: 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :status, class: 'form-control' %>
+      <%= f.select :status, options_for_select(select_status), class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">
