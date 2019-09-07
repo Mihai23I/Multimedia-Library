@@ -2,17 +2,7 @@
 
 Rails.application.routes.draw do
 
-  namespace :administrator do
-    resources :global_settings
-    resources :videos
-    resources :items
-    resources :users
-    resources :physical_videos
-    resources :physical_items
-    resources :locations
-    resources :loans
-    resources :coordinates
-  end
+
 
   root 'static_pages#home'
 
@@ -40,18 +30,18 @@ Rails.application.routes.draw do
     resources :locations, only: [:new, :create, :edit, :update]
   end
 
-  # namespace :administrator do
-  #   resources :clients
-  #   resources :users
-  #   resources :items
-  #   resources :videos
-  #   resources :locations
-  #   resources :cities
-  #   resources :global_settings
-  #   resources :physical_items
-  #   resources :physical_videos
-  #   resources :loans
-  # end
+  namespace :administrator do
+    resources :clients
+    resources :users
+    resources :items
+    resources :videos
+    resources :locations
+    resources :cities
+    resources :global_settings
+    resources :physical_items
+    resources :physical_videos
+    resources :loans
+  end
 
   resources :locations, only: [:index]
 
