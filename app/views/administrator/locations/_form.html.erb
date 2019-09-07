@@ -1,0 +1,58 @@
+<%= form_for([:administrator, @location], html: { class: 'form-horizontal location' }) do |f| %>
+  <% if @location.errors.any? %>
+    <div id="error_explanation" class="panel panel-danger">
+      <div class="panel-heading">
+        <h2 class="panel-title"><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :address, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :schedule, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :schedule, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :alternative_contact, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :alternative_contact, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :coordinate_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :coordinate_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :city_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

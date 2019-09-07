@@ -1,4 +1,4 @@
-class Administrator::PhysicalItemsController < ApplicationController
+class Administrator::PhysicalItemsController < AdminsController
   before_action :set_physical_item, only: [:show, :edit, :update, :destroy]
 
   # GET /administrator/physical_items

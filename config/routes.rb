@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :users
     resources :physical_videos
     resources :physical_items
+    resources :locations
+    resources :loans
   end
 
   root 'static_pages#home'

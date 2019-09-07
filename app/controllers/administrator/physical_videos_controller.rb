@@ -1,4 +1,4 @@
-class Administrator::PhysicalVideosController < ApplicationController
+class Administrator::PhysicalVideosController < AdminsController
   before_action :set_physical_video, only: [:show, :edit, :update, :destroy]
 
   # GET /administrator/physical_videos
