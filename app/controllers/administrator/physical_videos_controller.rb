@@ -3,7 +3,8 @@ class Administrator::PhysicalVideosController < AdminsController
 
   # GET /administrator/physical_videos
   def index
-    @physical_videos = PhysicalVideo.all
+    @q = PhysicalVideo.ransack(params[:q])
+    @physical_videos = @q.result.order(updated_at: :desc).page(params[:page])
   end
 
   # GET /administrator/physical_videos/1
@@ -13,6 +14,7 @@ class Administrator::PhysicalVideosController < AdminsController
   # GET /administrator/physical_videos/new
   def new
     @physical_video = PhysicalVideo.new
+    @physical_video.build_physical_item
   end
 
   # GET /administrator/physical_videos/1/edit
@@ -53,6 +55,6 @@ class Administrator::PhysicalVideosController < AdminsController
 
     # Only allow a trusted parameter "white list" through.
     def physical_video_params
-      params.require(:physical_video).permit(:physical_item_id, :is_3d, :format, :resolution, :sound, :dubbed, :other_information)
+      params.require(:physical_video).permit(:physical_item_id, :is_3d, :format, :resolution, :sound, :dubbed, :other_information, physical_item_attributes: [:location_id, :category, :item_id])
     end
 end

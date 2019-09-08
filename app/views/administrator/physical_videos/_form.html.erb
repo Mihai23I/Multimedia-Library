@@ -14,12 +14,23 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :physical_item_id, class: 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.number_field :physical_item_id, class: 'form-control' %>
+  <%= f.fields_for :physical_item do |f2| %>
+    <div class="form-group">
+      <%= f2.label :location_id, class: 'control-label col-md-2'%>
+      <div class="col-md-10">
+      <%= f2.select :location_id, options_for_select(select_location), class: 'form-control form-control-md' %>
+      </div>
     </div>
-  </div>
+
+    <div class="form-group">
+      <%= f2.label :item_id, class: 'control-label col-md-2'%>
+      <div class="col-md-10">
+      <%= f2.number_field :item_id, class: 'form-control' %>
+      </div>
+    </div>
+    <% f2.hidden_field :category, value: "video" %>
+  <% end %>
+
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
       <%= f.label :is_3d, for: nil do %>
@@ -46,6 +57,7 @@
       <%= f.text_field :sound, class: 'form-control' %>
     </div>
   </div>
+
   <div class="form-group">
     <%= f.label :dubbed, class: 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -58,6 +70,7 @@
       <%= f.text_area :other_information, class: 'form-control' %>
     </div>
   </div>
+
   <div class="form-group">
     <div class="col-md-offset-2 col-md-10">
       <%= f.submit nil, class: 'btn btn-primary' %>

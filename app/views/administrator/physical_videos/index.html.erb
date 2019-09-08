@@ -1,10 +1,31 @@
 <div class="page-header">
   <h1>Listing physical_videos</h1>
 </div>
+<br>
+<%= link_to 'New Physical video', new_administrator_physical_video_path, class: 'btn btn-primary' %>
+
+<br><br>
+<%= search_form_for @q, url: administrator_physical_items_path do |f| %>
+
+  <%= f.label :id %>
+  <%= f.search_field :id_eq, class: "form-control-sm" %>
+
+  <%= f.label :physical_item_id, "Physical Item ID" %>
+  <%= f.search_field :physical_item_id, class: "form-control-sm" %>
+
+  <br>
+  <%= f.submit 'Search', class: "btn btn-outline-primary btn-sm"%>
+  <a href="<%= "#{administrator_physical_videos_url}" %>" class="btn btn-outline-dark btn-sm">Ignore filters</a>
+<% end %>
+
+<%= paginate @physical_videos %>
+<br>
+<%= page_entries_info @physical_videos, entry_name: 'client' %>
 
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Physical item</th>
       <th>Is 3d</th>
       <th>Format</th>
@@ -21,6 +42,7 @@
   <tbody>
     <% @physical_videos.each do |physical_video| %>
       <tr>
+        <td><%= physical_video.id %></td>
         <td><%= physical_video.physical_item_id %></td>
         <td><%= physical_video.is_3d %></td>
         <td><%= physical_video.format %></td>
@@ -37,5 +59,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Physical video', new_administrator_physical_video_path, class: 'btn btn-primary' %>
