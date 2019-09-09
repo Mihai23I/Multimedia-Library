@@ -1,58 +1,33 @@
-<h1>Creează un nou imprumut</h1>
+<h1>Creează o cerere de imprumut</h1>
 <br>
 
-<p>Completează urmatorul formular pentru a realiza un imprumut:</p>
-<%= form_for @user, url: sign_up_path do |f| %>
+<p>Obiectul care se doreste a fi imprumutat este: "<%= @physical_item.item.name %>"</p>
+<p>Codul exemplarului este "<%= @physical_item.id %>"</p>
+<p>Obiectul va putea sa fie ridicat de la locatia "<%= @physical_item.location.name %>"</p>
+<br>
+<p>Completează urmatorul formular pentru a realiza cererea de imprumut:</p>
+<%= form_for @loan, url: loans_path do |f| %>
 
   <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% @loan.errors.full_messages.each do |msg| %>
       <li class="text-danger"> <%= msg %></li>
     <% end %>
   </ul>
 
   <div class="form-group row">
-    <%= f.label :email, class: "col-sm-2 col-form-label" %>
-    <%= f.email_field :email, class: "textinput", placeholder: "Introdu adresa de mail" %>
+    <%= f.label :data_imprumutului, class: "col-sm-2 col-form-label" %>
+    <%= f.date_field :burrow_date, class: "form-control-sm" %>
   </div>
 
   <div class="form-group row">
-    <%= f.label :parolă, class: "col-sm-2 col-form-label" %>
-    <%= f.password_field :password, class: "textinput" %>
+    <%= f.label :data_returnarii, class: "col-sm-2 col-form-label" %>
+    <%= f.date_field :return_date, class: "form-control-sm" %>
   </div>
 
-  <div class="form-group row">
-    <%= f.label :confirmă_parola, class: "col-sm-2 col-form-label" %>
-    <%= f.password_field :password_confirmation, class: "textinput" %>
-  </div>
-  <br><br>
-  <p>Informații client:</p>
+  <%= f.hidden_field :client_id, value: current_user.client.id.to_s %>
+  <%= f.hidden_field :physical_item_id, value: @physical_item.id.to_s %>
+  <%= f.hidden_field :status, value: "active" %>
 
-  <%= f.fields_for :client do |f2| %>
-    <div class="form-group row">
-      <%= f2.label :nume, class: "col-sm-2 col-form-label"%>
-      <%= f2.text_field :name, class: "textinput" %>
-    </div>
-
-    <div class="form-group row">
-      <%= f.label :oras, class: "col-sm-2 col-form-label"%>
-      <%= f.collection_select :city_id, City.order(:name),:id,:name, include_blank: true, class: "browser-default custom-select" %>
-    </div>
-
-    <div class="form-group row">
-      <%= f2.label :adresă, class: "col-sm-2 col-form-label"%>
-      <%= f2.text_field :address, class: "textinput" %>
-    </div>
-
-    <div class="form-group row">
-      <%= f2.label :număr_de_telefon, class: "col-sm-2 col-form-label"%>
-      <%= f2.text_field :phone, class: "textinput" %>
-    </div>
-
-    <div class="form-group row">
-      <%= f2.label :cnp, 'CNP', class: "col-sm-2 col-form-label"%>
-      <%= f2.text_field :unique_identifier_code, class: "textinput" %>
-    </div>
-  <% end %>
-
-  <%= f.submit "Înregistrare cont nou", class: "btn btn-primary" %>
+  <%= f.submit "Realizeaza imprumutul", class: "btn btn-primary" %>
+  <%= link_to 'Inapoi', item_physical_videos_path(@physical_item.item), class: 'btn btn-warning' %>
 <% end %>

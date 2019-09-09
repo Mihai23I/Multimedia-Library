@@ -17,3 +17,26 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrap-datepicker
+
+$(document).ready(function () {
+    $('#1').datepicker({
+        autoclose: true
+    });
+
+    $('#2').datepicker({
+        autoclose: true
+    });
+
+    $('#3').datepicker({
+        autoclose: true
+    });
+
+    $('#4').datepicker({
+        autoclose: true
+    });
+
+    $('#5').minicolors ({
+      theme: 'bootstrap'
+    });
+});

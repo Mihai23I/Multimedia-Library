@@ -10,7 +10,7 @@
     <% end %>
   </ul>
 
-  <%= hidden_field_tag :email, @user.email %>
+  <%= f.hidden_field :email, value: @user.email %>
 
   <div class="form-group row">
     <%= f.label :parolă, class: "col-sm-2 col-form-label" %>

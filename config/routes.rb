@@ -22,13 +22,13 @@ Rails.application.routes.draw do
     resources :physical_videos, only: [:index]
   end
 
-  resources :users do
-    resources :loans, only: [:index]
-  end
+  resources :loans, only: [:index]
 
   resources :physical_item do
-    resources :loans, only: [:new, :create]
+    resources :loans, only: [:new]
   end
+
+  resources :loans, only: [:create]
 
   resources :videos, only: [:index, :show]
 
