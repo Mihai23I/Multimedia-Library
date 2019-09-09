@@ -3,7 +3,7 @@
 <p>In lista de mai jos sunt vizibile toate cererile de imprumut realizate.</p>
 <% if @loans.present? %>
 <p>Pentru imprumut este nevoie sa te prezinti la locatia stabilita cu actele necesare atasate in mail.</p>
-
+<p>Daca aveti intrebari sau doriti sa anulati o cerere, puteti contacta locatia respectiva. </p>
 <div class="table">
   <table class="table">
     <thead>
@@ -23,7 +23,7 @@
         <tr>
           <td class="align-middle"><%= loan.id %></td>
           <td class="align-middle"><%= loan.physical_item.id %></td>
-          <td class="align-middle"><%= loan.physical_item.item.name %></td>
+          <td class="align-middle"><%= link_to loan.physical_item.item.name, video_url(loan.physical_item.item.video) %></td>
           <td class="align-middle"><%= loan.physical_item.location.name %></td>
           <td class="align-middle"><%= loan.burrow_date %></td>
           <td class="align-middle"><%= loan.return_date %></td>

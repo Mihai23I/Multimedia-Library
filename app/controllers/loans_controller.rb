@@ -13,6 +13,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     if @loan.save
+      UserMailer.request_loan(current_user, @loan).deliver_now
       flash[:success] = 'Cererea a fost realizata'
       redirect_to loans_path
     else

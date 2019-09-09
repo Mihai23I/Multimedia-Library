@@ -3,11 +3,11 @@
 <br>
 <%= form_tag(item_physical_videos_path(@item.id), method: :get) do %>
   Locatie: <%= select_tag :location_id, options_for_select(select_location), class: "form-control-sm input-sm"%>
-  Format: <%= select_tag :format, options_for_select(select_location), class: "form-control-sm input-sm"%>
-  Rezolutie: <%= select_tag :resolution, options_for_select(select_location), class: "form-control-sm input-sm"%>
-  3d: <%= select_tag :is_3d, options_for_select(select_location), class: "form-control-sm input-sm"%>
+  Format: <%= select_tag :format, options_for_select(select_format), class: "form-control-sm input-sm"%>
+  Rezolutie: <%= select_tag :resolution, options_for_select(select_resolution), class: "form-control-sm input-sm"%>
+  3d: <%= select_tag :is_3d, options_for_select(select_is_3d), class: "form-control-sm input-sm"%>
   <%= submit_tag 'Aplica filtre', class: "btn btn-dark"%>
-  <a href="<%= "#{videos_url}" %>" class="btn btn-outline-danger">Ignora filtre</a><br>
+  <a href="<%= "#{item_physical_videos_path(@item.id)}" %>" class="btn btn-outline-danger">Ignora filtre</a><br>
 <% end %>
 
 <div class="table">

@@ -12,8 +12,20 @@ module ApplicationHelper
   def select_status
     %w[Activ Rejectat Anulat Imprumutat Returnat]
   end
-  
+
   def select_location
     Location.all.map{ |u| [u.name, u.id] }.uniq.sort.unshift('')
+  end
+
+  def select_format
+    %w[DVD Blu-Ray].unshift('').map{ |u| [u, u] }
+  end
+
+  def select_resolution
+    %w[480p 720p 1080p 4k 8k].unshift('').map{ |u| [u, u] }
+  end
+
+  def select_is_3d
+    %w[true false].unshift('').map{ |u| [u, u] }
   end
 end
