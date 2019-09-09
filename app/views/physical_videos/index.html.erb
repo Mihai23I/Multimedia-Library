@@ -1,12 +1,17 @@
 <h1>Obiectele disponibile pentru:<br>
 <%= "Filmul: #{@item.name}" %></h1>
 <br>
-<% if admin? %>
-  <%= link_to 'Adauga un video nou', '#', class: "btn btn-primary" %>
-  <br>
+<%= form_tag(item_physical_videos_path(@item.id), method: :get) do %>
+  Locatie: <%= select_tag :location_id, options_for_select(select_location), class: "form-control-sm input-sm"%>
+  Format: <%= select_tag :format, options_for_select(select_location), class: "form-control-sm input-sm"%>
+  Rezolutie: <%= select_tag :resolution, options_for_select(select_location), class: "form-control-sm input-sm"%>
+  3d: <%= select_tag :is_3d, options_for_select(select_location), class: "form-control-sm input-sm"%>
+  <%= submit_tag 'Aplica filtre', class: "btn btn-dark"%>
+  <a href="<%= "#{videos_url}" %>" class="btn btn-outline-danger">Ignora filtre</a><br>
 <% end %>
+
 <div class="table">
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>ID<th>
@@ -34,10 +39,11 @@
           <td class="align-middle"><%= physical_video.sound %></td>
           <td class="align-middle"><%= physical_video.is_3d ? "Da" : "Nu" %></td>
           <td class="align-middle"><%= physical_video.blank? ? "Nu" : "Da" %></td>
+          <td class="align-middle"><%= button_to "Imprumuta", "#", method: :get, class: "btn btn-success btn-sm" %> </td>
         </tr>
-        <% Loan.where(physical_item_id: physical_video.physical_item.id).where("return_date >= ? AND status IS NOT ?", Date.today, "cancelled").each do |loan| %>
-          <tr class="warning">
-          <td colspan="8"> Obiect indisponibil in perioada: <%= " #{loan.burrow_date} - #{loan.return_date}" %></td>
+        <% Loan.where(physical_item_id: physical_video.physical_item.id).where("return_date >= ? AND status IS NOT ?", Date.yesterday, "cancelled").each do |loan| %>
+          <tr class="table-warning">
+          <td colspan="10"><b> Obiect indisponibil in perioada: <%= " #{loan.burrow_date} - #{loan.return_date}" %> </b></td>
           </tr>
         <% end %>
       <% end %>

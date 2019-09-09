@@ -42,7 +42,7 @@ class Video < ApplicationRecord
   scope :filter_location, lambda { |string|
     return nil if string.blank?
 
-    join(:locations).where("locations.id = ?", string)
+    joins(:locations).where("locations.id = ?", string.to_i.to_s).distinct
   }
 
   scope :filter_year, lambda { |string|

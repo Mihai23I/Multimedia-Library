@@ -1,2 +1,33 @@
-Aceasta este pagina principala!
-<%= current_user&.admin %>
+<h1>Pagina principala!</h1>
+<br>
+<p>O bibliotecă multimedia reprezintă o instituție publică asemenea unei biblioteci, care
+conține, pe lângă cărți (fizice sau electronice), ziare sau reviste și materiale multimedia -
+materiale video (filme și documentare) și materiale audio (înregistrări cu muzică sau cărți
+audio). Rolul unei astfel de biblioteci este acela de a sprijini întâlnirea cu informația,
+indiferent de forma în care ea este prezentată. O bibliotecă sprijină lucrul sistematic cu
+scopul de a dobândi cunoștințe, iar împrumutul și împărțitul sunt două concepte cheie ale
+oricărei biblioteci.</p>
+
+<p>
+  Concret, în cadrul acestui proiect, va fi propus un model de modernizare al sistemelor
+actuale de gestionare al bibliotecilor. ”Sistemul de gestionare al unei biblioteci multimedia”
+prezentat în proiect va fi construit după modelul unei platforme care facilitează procesul de
+3
+împrumut al unui exemplar fizic. Ea îi va pune la dispoziție utilizatorului un catalog cu
+produsele existente, care pot fi împrumutate, alături de informațiile legate de locurile unde
+se realizează împrumutul și de disponibilitatea obiectului fizic (cu mențiunea că aceste
+obiecte vor fi adăugate într-o bază de date de către administratorii bibliotecii). Un client va
+avea posibilitatea să își rezerve, prin intermediul aplicației, un produs de împrumut pentru o
+anumită perioadă (atâta timp cât produsul este disponibil în acel interval), iar
+administratorul va avea capacitatea să gestioneze atât cererile de împrumut care se fac prin
+platforma, cât și cererile de împrumut care se fac la sediile/locurile unde există fizic
+bibliotecile. </p>
+
+<p> <b> Pentru a realiza un imprumut, trebuie sa fi logat. </b> </p>
+<p> Pentru a accesa pagina cu informatii despre locatii, acceseaza acest <%= link_to "link", locations_url %>.</p>
+<p> Pentru a accesa pagina cu informatii despre obiectele listate, acceseaza acest <%= link_to "link", videos_url %>. </p>
+<p> Pentru a accesa pagina de creare a unui cont, poti accesa acest <%= link_to "link", sign_up_url %>. Daca ai deja un cont, te poti loga la urmatorul <%= link_to "link", login_url %>. </p>
+<p> Pentru a avea acces la functionalitatile de admin trebuie sa te loghezi cu un cont de admin </p>
+
+<p> Acest proiect a fost realizat de catre absolventul Mihai Cristian Ionescu, pentru lucrarea de licenta cu tema: "Biblioteca Multimedia", din cadrul
+  Universitatii Politehnice Bucuresti, Facultatea de Automatica si Calculatoare </p>

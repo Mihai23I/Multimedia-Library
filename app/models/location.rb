@@ -7,6 +7,7 @@ class Location < ApplicationRecord
 
   has_many :physical_items
   belongs_to :coordinate
+  belongs_to :city
 
   private
 

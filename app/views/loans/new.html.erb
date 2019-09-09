@@ -1,0 +1,58 @@
+<h1>Creează un nou imprumut</h1>
+<br>
+
+<p>Completează urmatorul formular pentru a realiza un imprumut:</p>
+<%= form_for @user, url: sign_up_path do |f| %>
+
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li class="text-danger"> <%= msg %></li>
+    <% end %>
+  </ul>
+
+  <div class="form-group row">
+    <%= f.label :email, class: "col-sm-2 col-form-label" %>
+    <%= f.email_field :email, class: "textinput", placeholder: "Introdu adresa de mail" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :parolă, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password, class: "textinput" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :confirmă_parola, class: "col-sm-2 col-form-label" %>
+    <%= f.password_field :password_confirmation, class: "textinput" %>
+  </div>
+  <br><br>
+  <p>Informații client:</p>
+
+  <%= f.fields_for :client do |f2| %>
+    <div class="form-group row">
+      <%= f2.label :nume, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :name, class: "textinput" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :oras, class: "col-sm-2 col-form-label"%>
+      <%= f.collection_select :city_id, City.order(:name),:id,:name, include_blank: true, class: "browser-default custom-select" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f2.label :adresă, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :address, class: "textinput" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f2.label :număr_de_telefon, class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :phone, class: "textinput" %>
+    </div>
+
+    <div class="form-group row">
+      <%= f2.label :cnp, 'CNP', class: "col-sm-2 col-form-label"%>
+      <%= f2.text_field :unique_identifier_code, class: "textinput" %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Înregistrare cont nou", class: "btn btn-primary" %>
+<% end %>

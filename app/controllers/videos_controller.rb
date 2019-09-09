@@ -4,9 +4,10 @@ class VideosController < ApplicationController
                        .filter_year(params[:year])
                        .search_genre(params[:genre])
                        .search_actors(params[:actors])
-                       .filter_location(params[:locations])
+                       .filter_location(params[:locations]&.first)
     @locations = params[:locations]
     @videos = @videos.order(updated_at: :desc).page params[:page]
+    flash[:warning] = 'Niciun videoclip nu corespunde filtrarii' if @videos.blank?
   end
 
   def show

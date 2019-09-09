@@ -22,7 +22,16 @@ Rails.application.routes.draw do
     resources :physical_videos, only: [:index]
   end
 
+  resources :users do
+    resources :loans, only: [:index]
+  end
+
+  resources :physical_item do
+    resources :loans, only: [:new, :create]
+  end
+
   resources :videos, only: [:index, :show]
+
   namespace :admin do
     resources :videos, only: [:new, :create, :edit, :update]
     resources :locations, only: [:new, :create, :edit, :update]

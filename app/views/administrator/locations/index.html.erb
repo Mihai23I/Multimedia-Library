@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Address</th>
       <th>Schedule</th>
@@ -20,11 +21,12 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
+        <td><%= location.id %></td>
         <td><%= location.name %></td>
         <td><%= location.address %></td>
         <td><%= location.schedule %></td>
         <td><%= location.alternative_contact %></td>
-        <td><%= location.coordinate_id %></td>
+        <td><%= location.coordinate.id %> - <%= location.coordinate.latitude %> <%= location.coordinate.longitude %></td>
         <td><%= location.city_id %></td>
         <td><%= link_to 'Show', [:administrator, location], class: 'btn btn-default btn-xs' %></td>
         <td><%= link_to 'Edit', edit_administrator_location_path(location), class: 'btn btn-default btn-xs' %></td>
