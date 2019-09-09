@@ -34,12 +34,16 @@
         <hr>
         <p class="card-text"> Pagina imdb: <%= link_to "Link", @video.imdb_url %>
         <hr>
-        <p class="card-text">Acest film este disponibil in urmatoarele locatii: </p>
-        <% @video.locations.each do |location| %>
-          <p class="card-text"><a href="<%=item_physical_videos_path(@video.item.id)%>" class="btn btn-primary">Inchiriaza film</a> - <%= "#{Location.first.name} - #{Location.first.address}" %> </p>
+        <% if @video.item.physical_items.present? %>
+          <p class="card-text">Acest film este disponibil in urmatoarele locatii: </p>
+          <% @video.locations.each do |location| %>
+            <p class="card-text"><a href="<%=item_physical_videos_path(@video.item.id)%>" class="btn btn-primary">Inchiriaza film</a> - <%= "#{Location.first.name} - #{Location.first.address}" %> </p>
+          <% end %>
+          <hr>
+          Poti vedea toate optiunile aici: <a href="<%=item_physical_videos_path(@video.item.id)%>" class="btn btn-success">Vezi toate optiunile</a>
+        <% else %>
+          <b>Acest obiect nu mai este disponibil</b>
         <% end %>
-        <hr>
-        Poti vedea toate optiunile aici: <a href="<%=item_physical_videos_path(@video.item.id)%>" class="btn btn-success">Vezi toate optiunile</a>
       </div>
     </div>
 

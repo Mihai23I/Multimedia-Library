@@ -39,7 +39,7 @@
           <td class="align-middle"><%= physical_video.sound %></td>
           <td class="align-middle"><%= physical_video.is_3d ? "Da" : "Nu" %></td>
           <td class="align-middle"><%= physical_video.blank? ? "Nu" : "Da" %></td>
-          <td class="align-middle"><%= button_to "Imprumuta", "#", method: :get, class: "btn btn-success btn-sm" %> </td>
+          <td class="align-middle"><%= button_to "Imprumuta", new_physical_item_loan_path(physical_video.physical_item), method: :get, class: "btn btn-success btn-sm" %> </td>
         </tr>
         <% Loan.where(physical_item_id: physical_video.physical_item.id).where("return_date >= ? AND status IS NOT ?", Date.yesterday, "cancelled").each do |loan| %>
           <tr class="table-warning">

@@ -31,3 +31,8 @@
   <%= f.submit "Realizeaza imprumutul", class: "btn btn-primary" %>
   <%= link_to 'Inapoi', item_physical_videos_path(@physical_item.item), class: 'btn btn-warning' %>
 <% end %>
+<br><br>
+<% Loan.where(physical_item_id: @physical_item.id).where("return_date >= ? AND status IS NOT ?", Date.yesterday, "cancelled").each do |loan| %>
+<b> Obiect indisponibil in perioada: <%= " #{loan.burrow_date} - #{loan.return_date}" %> </b>
+<br>
+<% end %>

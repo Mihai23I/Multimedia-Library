@@ -41,7 +41,7 @@
 
           </div>
           <div class="card-footer">
-            <small class="text-muted"><div class="btn-group"><%= button_to "Vezi detalii", video_path(video), method: :get, class: "btn btn-success btn-sm btn-space" %><%= button_to "Imprumuta", "#", method: :get, class: "btn btn-primary btn-sm" %></div></small>
+            <small class="text-muted"><div class="btn-group"><%= button_to "Vezi detalii", video_path(video), method: :get, class: "btn btn-success btn-sm btn-space" %><%= button_to("Imprumuta", item_physical_videos_path(video.item.id), method: :get, class: "btn btn-primary btn-sm") if video.item.physical_items.present? %></div></small>
           </div>
         </div>
       </div>

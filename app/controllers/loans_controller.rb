@@ -17,6 +17,7 @@ class LoansController < ApplicationController
       redirect_to loans_path
     else
       redirect_to new_physical_item_loan_path(params[:loan][:physical_item_id])
+      flash[:danger] = 'Cererea nu a putut sa fie realizata - perioada invalida'
     end
   end
 

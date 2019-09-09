@@ -1,0 +1,47 @@
+<h1>Imprumuturile mele</h1>
+<br>
+<p>In lista de mai jos sunt vizibile toate cererile de imprumut realizate.</p>
+<% if @loans.present? %>
+<p>Pentru imprumut este nevoie sa te prezinti la locatia stabilita cu actele necesare atasate in mail.</p>
+
+<div class="table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID Cerere</th>
+        <th>ID-ul obiectului</th>
+        <th>Numele obiectului</th>
+        <th>Locatia</th>
+        <th>Data de imprumut</th>
+        <th>Data de returnare</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @loans.each do |loan| %>
+        <tr>
+          <td class="align-middle"><%= loan.id %></td>
+          <td class="align-middle"><%= loan.physical_item.id %></td>
+          <td class="align-middle"><%= loan.physical_item.item.name %></td>
+          <td class="align-middle"><%= loan.physical_item.location.name %></td>
+          <td class="align-middle"><%= loan.burrow_date %></td>
+          <td class="align-middle"><%= loan.return_date %></td>
+          <td class="align-middle"><%= loan.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<p>
+Statusul unei cereri poate sa fie:<br>
+● activ - cererea a fost realizată, obiectul nu a fost încă împrumutat<br>
+● rejectat - în urma unei moderări realizate de către un administrator, cererea a fost
+rejectată.<br>
+● anulat - utilizatorul a cerut anularea comenzii<br>
+● împrumutat - indică faptul că obiectul se află la client<br>
+● returnat - indică finalizarea cu succes a procesului de împrumut.</p>
+<% else %>
+<p>Nu aveti nicio cerere de imprumut realizata.</p>
+<% end %>
